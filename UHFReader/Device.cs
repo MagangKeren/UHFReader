@@ -729,5 +729,165 @@ namespace UHFReader
             Greater_6B.Enabled = false;
             ComboBox_baud2.SelectedIndex = 3;
         }
+
+        private void ComboBox_IntervalTime_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBox_IntervalTime.SelectedIndex < 6)
+                Timer_Test_.Interval = 100;
+            else
+                Timer_Test_.Interval = (ComboBox_IntervalTime.SelectedIndex + 4) * 10;
+        }
+
+        private void CheckBox_TID_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox_TID.Checked)
+            {
+                groupBox33.Enabled = true;
+                textBox4.Enabled = true;
+                textBox5.Enabled = true;
+            }
+            else
+            {
+                groupBox33.Enabled = false;
+                textBox4.Enabled = false;
+                textBox5.Enabled = false;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (CheckBox_TID.Checked)
+            {
+                if ((textBox4.Text.Length) != 2 || ((textBox5.Text.Length) != 2))
+                {
+                    StatusBar1.Panels[0].Text = "TID Parameter Error！";
+                    return;
+                }
+            }
+            Timer_Test_.Enabled = !Timer_Test_.Enabled;
+            if (!Timer_Test_.Enabled)
+            {
+                textBox4.Enabled = true;
+                textBox5.Enabled = true;
+                CheckBox_TID.Enabled = true;
+                if (ListView1_EPC.Items.Count != 0)
+                {
+                    DestroyCode.Enabled = false;
+                    AccessCode.Enabled = false;
+                    NoProect.Enabled = false;
+                    Proect.Enabled = false;
+                    Always.Enabled = false;
+                    AlwaysNot.Enabled = false;
+                    NoProect2.Enabled = true;
+                    Proect2.Enabled = true;
+                    Always2.Enabled = true;
+                    AlwaysNot2.Enabled = true;
+                    P_Reserve.Enabled = true;
+                    P_EPC.Enabled = true;
+                    P_TID.Enabled = true;
+                    P_User.Enabled = true;
+                    Button_DestroyCard.Enabled = true;
+                    Button_SetReadProtect_G2.Enabled = true;
+                    Button_SetEASAlarm_G2.Enabled = true;
+                    Alarm_G2.Enabled = true;
+                    NoAlarm_G2.Enabled = true;
+                    Button_LockUserBlock_G2.Enabled = true;
+                    Button_WriteEPC_G2.Enabled = true;
+                    Button_SetMultiReadProtect_G2.Enabled = true;
+                    Button_RemoveReadProtect_G2.Enabled = true;
+                    Button_CheckReadProtected_G2.Enabled = true;
+                    button4.Enabled = true;
+                    SpeedButton_Read_G2.Enabled = true;
+                    Button_SetProtectState.Enabled = true;
+                    Button_DataWrite.Enabled = true;
+                    BlockWrite.Enabled = true;
+                    Button_BlockErase.Enabled = true;
+                    checkBox1.Enabled = true;
+                }
+                if (ListView1_EPC.Items.Count == 0)
+                {
+                    DestroyCode.Enabled = false;
+                    AccessCode.Enabled = false;
+                    NoProect.Enabled = false;
+                    Proect.Enabled = false;
+                    Always.Enabled = false;
+                    AlwaysNot.Enabled = false;
+                    NoProect2.Enabled = false;
+                    Proect2.Enabled = false;
+                    Always2.Enabled = false;
+                    AlwaysNot2.Enabled = false;
+                    P_Reserve.Enabled = false;
+                    P_EPC.Enabled = false;
+                    P_TID.Enabled = false;
+                    P_User.Enabled = false;
+                    Button_DestroyCard.Enabled = false;
+                    Button_SetReadProtect_G2.Enabled = false;
+                    Button_SetEASAlarm_G2.Enabled = false;
+                    Alarm_G2.Enabled = false;
+                    NoAlarm_G2.Enabled = false;
+                    Button_LockUserBlock_G2.Enabled = false;
+                    SpeedButton_Read_G2.Enabled = false;
+                    Button_DataWrite.Enabled = false;
+                    BlockWrite.Enabled = false;
+                    Button_BlockErase.Enabled = false;
+                    Button_WriteEPC_G2.Enabled = true;
+                    Button_SetMultiReadProtect_G2.Enabled = true;
+                    Button_RemoveReadProtect_G2.Enabled = true;
+                    Button_CheckReadProtected_G2.Enabled = true;
+                    button4.Enabled = true;
+                    Button_SetProtectState.Enabled = false;
+                    checkBox1.Enabled = false;
+
+                }
+                AddCmdLog("Inventory", "Exit Query", 0);
+                button2.Text = "Query Tag";
+            }
+            else
+            {
+                textBox4.Enabled = false;
+                textBox5.Enabled = false;
+                CheckBox_TID.Enabled = false;
+                DestroyCode.Enabled = false;
+                AccessCode.Enabled = false;
+                NoProect.Enabled = false;
+                Proect.Enabled = false;
+                Always.Enabled = false;
+                AlwaysNot.Enabled = false;
+                NoProect2.Enabled = false;
+                Proect2.Enabled = false;
+                Always2.Enabled = false;
+                AlwaysNot2.Enabled = false;
+                P_Reserve.Enabled = false;
+                P_EPC.Enabled = false;
+                P_TID.Enabled = false;
+                P_User.Enabled = false;
+                Button_WriteEPC_G2.Enabled = false;
+                Button_SetMultiReadProtect_G2.Enabled = false;
+                Button_RemoveReadProtect_G2.Enabled = false;
+                Button_CheckReadProtected_G2.Enabled = false;
+                button4.Enabled = false;
+
+                Button_DestroyCard.Enabled = false;
+                Button_SetReadProtect_G2.Enabled = false;
+                Button_SetEASAlarm_G2.Enabled = false;
+                Alarm_G2.Enabled = false;
+                NoAlarm_G2.Enabled = false;
+                Button_LockUserBlock_G2.Enabled = false;
+                SpeedButton_Read_G2.Enabled = false;
+                Button_DataWrite.Enabled = false;
+                BlockWrite.Enabled = false;
+                Button_BlockErase.Enabled = false;
+                Button_SetProtectState.Enabled = false;
+                ListView1_EPC.Items.Clear();
+                ComboBox_EPC1.Items.Clear();
+                ComboBox_EPC2.Items.Clear();
+                ComboBox_EPC3.Items.Clear();
+                ComboBox_EPC4.Items.Clear();
+                ComboBox_EPC5.Items.Clear();
+                ComboBox_EPC6.Items.Clear();
+                button2.Text = "Stop";
+                checkBox1.Enabled = false;
+            }
+        }
     }
 }
