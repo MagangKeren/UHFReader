@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RfidApiLib">
-      <HintPath>..\..\..\64Bit\c#\Demo\RfidApiLib.dll</HintPath>
+      <HintPath>.\RfidApiLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,6 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Device 2.resx">
       <DependentUpon>Device 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Device.resx">
+      <DependentUpon>Device.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
