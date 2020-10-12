@@ -12,9 +12,15 @@ namespace UHFReader
 {
     public partial class Device : Form
     {
+
         public Device()
         {
             InitializeComponent();
+        }
+
+        private void TabSheet_CMD_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
