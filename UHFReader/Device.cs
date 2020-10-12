@@ -538,7 +538,7 @@ namespace UHFReader
                 Button15.Enabled = false;
                 ListView_ID_6B.Items.Clear();
                 ComOpen = false;
-                //timer1.Enabled = false;
+                timer1.Enabled = false;
             }
         }
 
@@ -680,10 +680,10 @@ namespace UHFReader
             fisinventoryscan_6B = false;
             fTimer_6B_ReadWrite = false;
             Label_Alarm.Visible = false;
-            //Timer_Test_.Enabled = false;
-            //Timer_G2_Read.Enabled = false;
-            //Timer_G2_Alarm.Enabled = false;
-            //timer1.Enabled = false;
+            Timer_Test_.Enabled = false;
+            Timer_G2_Read.Enabled = false;
+            Timer_G2_Alarm.Enabled = false;
+            timer1.Enabled = false;
 
             Button3.Enabled = false;
             Button5.Enabled = false;

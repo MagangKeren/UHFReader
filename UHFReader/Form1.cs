@@ -24,7 +24,7 @@ namespace UHFReader
             Device device2 = new Device();
             if (comboBox2.SelectedIndex == 0)
             {
-                device2.Show();
+                device1.Show();
                 this.Hide();
             }
             else if (comboBox2.SelectedIndex == 1)
