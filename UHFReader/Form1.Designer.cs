@@ -43,6 +43,7 @@
             this.label2.Size = new System.Drawing.Size(51, 17);
             this.label2.TabIndex = 9;
             this.label2.Text = "Device";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -52,6 +53,7 @@
             this.label1.Size = new System.Drawing.Size(34, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Port";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button1
             // 
@@ -61,6 +63,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "OK";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox2
             // 
@@ -69,6 +72,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 24);
             this.comboBox2.TabIndex = 6;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBox1
             // 
@@ -77,6 +81,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -90,6 +95,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
