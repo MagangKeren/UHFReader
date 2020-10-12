@@ -56,6 +56,12 @@
     <Compile Include="Device 2.Designer.cs">
       <DependentUpon>Device 2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Device.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Device.Designer.cs">
+      <DependentUpon>Device.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
