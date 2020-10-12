@@ -21,14 +21,15 @@ namespace UHFReader
         private void button1_Click(object sender, EventArgs e)
         {
             Device_2 device1 = new Device_2();
-            if (comboBox2.SelectedItem == "device 1")
+            Device device2 = new Device();
+            if (comboBox2.SelectedIndex == 0)
             {
-                device1.Show();
+                device2.Show();
                 this.Hide();
             }
-            else if (comboBox2.SelectedItem == "device 2")
+            else if (comboBox2.SelectedIndex == 1)
             {
-                device1.Show();
+                device2.Show();
                 this.Hide();
             }
             else

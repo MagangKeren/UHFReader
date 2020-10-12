@@ -276,7 +276,7 @@
             // 
             // TabSheet_CMD
             // 
-            this.TabSheet_CMD.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.TabSheet_CMD.BackColor = System.Drawing.Color.Transparent;
             this.TabSheet_CMD.Controls.Add(this.groupBox3);
             this.TabSheet_CMD.Controls.Add(this.progressBar1);
             this.TabSheet_CMD.Controls.Add(this.groupBox2);
@@ -610,6 +610,7 @@
             this.Button3.TabIndex = 17;
             this.Button3.Text = "Get Reader Info";
             this.Button3.UseVisualStyleBackColor = true;
+            this.Button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // Edit_scantime
             // 
@@ -852,6 +853,7 @@
             this.ClosePort.TabIndex = 5;
             this.ClosePort.Text = "Close Connection";
             this.ClosePort.UseVisualStyleBackColor = true;
+            this.ClosePort.Click += new System.EventHandler(this.ClosePort_Click);
             // 
             // OpenPort
             // 
@@ -862,6 +864,7 @@
             this.OpenPort.TabIndex = 4;
             this.OpenPort.Text = "Open Connection";
             this.OpenPort.UseVisualStyleBackColor = true;
+            this.OpenPort.Click += new System.EventHandler(this.OpenPort_Click);
             // 
             // Edit_CmdComAddr
             // 
@@ -893,6 +896,7 @@
             this.ComboBox_COM.Name = "ComboBox_COM";
             this.ComboBox_COM.Size = new System.Drawing.Size(183, 24);
             this.ComboBox_COM.TabIndex = 1;
+            this.ComboBox_COM.SelectedIndexChanged += new System.EventHandler(this.ComboBox_COM_SelectedIndexChanged);
             // 
             // Label1
             // 
@@ -2546,6 +2550,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Device";
             this.Text = "Device";
+            this.Load += new System.EventHandler(this.Device_Load);
             this.tabControl1.ResumeLayout(false);
             this.TabSheet_CMD.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
