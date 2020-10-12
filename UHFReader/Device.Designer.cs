@@ -233,6 +233,8 @@
             this.Timer_G2_Read = new System.Windows.Forms.Timer(this.components);
             this.Timer_G2_Alarm = new System.Windows.Forms.Timer(this.components);
             this.Timer_Test_6B = new System.Windows.Forms.Timer(this.components);
+            this.Timer_6B_Read = new System.Windows.Forms.Timer(this.components);
+            this.Timer_6B_Write = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.TabSheet_CMD.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -2829,5 +2831,7 @@
         private System.Windows.Forms.Timer Timer_G2_Read;
         private System.Windows.Forms.Timer Timer_G2_Alarm;
         private System.Windows.Forms.Timer Timer_Test_6B;
+        private System.Windows.Forms.Timer Timer_6B_Read;
+        private System.Windows.Forms.Timer Timer_6B_Write;
     }
 }
