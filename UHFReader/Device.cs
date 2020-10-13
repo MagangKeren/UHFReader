@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
+using System.Resources;
+using System.Reflection;
 using ReaderB;
+using System.IO.Ports;
+using System.IO;
 
 namespace UHFReader
 {
@@ -933,6 +935,15 @@ namespace UHFReader
                         ChangeSubItem(aListItem, 2, s);
                         if (!CheckBox_TID.Checked)
                         {
+                            if (ComboBox_EPC1.Items.IndexOf(sEPC) == -1)
+                            {
+                                ComboBox_EPC1.Items.Add(sEPC);
+                                ComboBox_EPC2.Items.Add(sEPC);
+                                ComboBox_EPC3.Items.Add(sEPC);
+                                ComboBox_EPC4.Items.Add(sEPC);
+                                ComboBox_EPC5.Items.Add(sEPC);
+                                ComboBox_EPC6.Items.Add(sEPC);
+                            }
                         }
 
                     }
@@ -940,7 +951,15 @@ namespace UHFReader
             }
             if (!CheckBox_TID.Checked)
             {
-
+                if ((ComboBox_EPC1.Items.Count != 0))
+                {
+                    ComboBox_EPC1.SelectedIndex = 0;
+                    ComboBox_EPC2.SelectedIndex = 0;
+                    ComboBox_EPC3.SelectedIndex = 0;
+                    ComboBox_EPC4.SelectedIndex = 0;
+                    ComboBox_EPC5.SelectedIndex = 0;
+                    ComboBox_EPC6.SelectedIndex = 0;
+                }
             }
             fIsInventoryScan = false;
             if (fAppClosed)
@@ -1273,30 +1292,7 @@ namespace UHFReader
 
         private void Button_SetProtectState_Click(object sender, EventArgs e)
         {
-            byte select = 0;
-            byte setprotect = 0;
-            byte EPClength;
-            string str;
-            byte ENum;
-            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (checkBox1.Checked)
-                MaskFlag = 1;
-            else
-                MaskFlag = 0;
-            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
-            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
 
-
-
-
-
-
-
-            AddCmdLog("SetCardProtect", "SetProtect", fCmdRet);
         }
 
         private void Button_DestroyCard_Click(object sender, EventArgs e)
@@ -2161,7 +2157,7 @@ namespace UHFReader
 
         private void Edit_CmdComAddr_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = ("0123456789ABCDEF".IndexOf(Char.ToUpper(e.KeyChar)) < 0);
+
         }
 
         private void Edit_Len_6B_KeyPress(object sender, KeyPressEventArgs e)
@@ -2382,6 +2378,240 @@ namespace UHFReader
                 m = n / 4;
                 m = (m & 0x3F) << 3;
                 textBox_pc.Text = Convert.ToString(m, 16).PadLeft(2, '0') + "00";
+            }
+        }
+
+        private void Timer_6B_Write_Tick_1(object sender, EventArgs e)
+        {
+            if (fTimer_6B_ReadWrite)
+                return;
+            fTimer_6B_ReadWrite = true;
+            Write_6B();
+            fTimer_6B_ReadWrite = false;
+        }
+
+        private void Timer_6B_Read_Tick_1(object sender, EventArgs e)
+        {
+            if (fTimer_6B_ReadWrite)
+                return;
+            fTimer_6B_ReadWrite = true;
+            Read_6B();
+            fTimer_6B_ReadWrite = false;
+        }
+
+        private void Timer_G2_Alarm_Tick_1(object sender, EventArgs e)
+        {
+            if (fTimer_6B_ReadWrite)
+                return;
+            fTimer_6B_ReadWrite = true;
+            Read_6B();
+            fTimer_6B_ReadWrite = false;
+        }
+
+        private void Timer_G2_Read_Tick_1(object sender, EventArgs e)
+        {
+            if (fIsInventoryScan)
+                return;
+            fIsInventoryScan = true;
+            byte WordPtr, ENum;
+            byte Num = 0;
+            byte Mem = 0;
+            byte EPClength = 0;
+            string str;
+            byte[] CardData = new byte[320];
+            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (checkBox1.Checked)
+                MaskFlag = 1;
+            else
+                MaskFlag = 0;
+            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
+            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
+            if (textBox1.Text == "")
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (ComboBox_EPC2.Items.Count == 0)
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (ComboBox_EPC2.SelectedItem == null)
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            str = ComboBox_EPC2.SelectedItem.ToString();
+            if (str == "")
+            {
+                // fIsInventoryScan = false;
+                //  return;
+            }
+            ENum = Convert.ToByte(str.Length / 4);
+            EPClength = Convert.ToByte(str.Length / 2);
+            byte[] EPC = new byte[ENum];
+            EPC = HexStringToByteArray(str);
+            if (C_Reserve.Checked)
+                Mem = 0;
+            if (C_EPC.Checked)
+                Mem = 1;
+            if (C_TID.Checked)
+                Mem = 2;
+            if (C_User.Checked)
+                Mem = 3;
+            if (Edit_AccessCode2.Text == "")
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (Edit_WordPtr.Text == "")
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            WordPtr = Convert.ToByte(Edit_WordPtr.Text, 16);
+            Num = Convert.ToByte(textBox1.Text);
+            if (Edit_AccessCode2.Text.Length != 8)
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            fPassWord = HexStringToByteArray(Edit_AccessCode2.Text);
+            fCmdRet = StaticClassReaderB.ReadCard_G2(ref fComAdr, EPC, Mem, WordPtr, Num, fPassWord, Maskadr, MaskLen, MaskFlag, CardData, EPClength, ref ferrorcode, frmcomportindex);
+            if (fCmdRet == 0)
+            {
+                byte[] daw = new byte[Num * 2];
+                Array.Copy(CardData, daw, Num * 2);
+                listBox1.Items.Add(ByteArrayToHexString(daw));
+                listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                AddCmdLog("ReadData", "Read", fCmdRet);
+            }
+            if (ferrorcode != -1)
+            {
+                StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() +
+                 " 'Read' Response ErrorCode=0x" + Convert.ToString(ferrorcode, 2) +
+                 "(" + GetErrorCodeDesc(ferrorcode) + ")";
+                ferrorcode = -1;
+            }
+            fIsInventoryScan = false;
+            if (fAppClosed)
+                Close();
+        }
+
+        private void Timer_Test__Tick_1(object sender, EventArgs e)
+        {
+            if (fIsInventoryScan)
+                return;
+            Inventory();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Timer_Test_6B_Tick_1(object sender, EventArgs e)
+        {
+            if (fisinventoryscan_6B)
+                return;
+            fisinventoryscan_6B = true;
+            Inventory_6B();
+            fisinventoryscan_6B = false;
+        }
+
+        private void BlockWrite_Click_1(object sender, EventArgs e)
+        {
+            byte WordPtr, ENum;
+            byte Num = 0;
+            byte Mem = 0;
+            byte WNum = 0;
+            byte EPClength = 0;
+            byte Writedatalen = 0;
+            int WrittenDataNum = 0;
+            string s2, str;
+            byte[] CardData = new byte[320];
+            byte[] writedata = new byte[230];
+            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (checkBox1.Checked)
+                MaskFlag = 1;
+            else
+                MaskFlag = 0;
+            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
+            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
+            if (ComboBox_EPC2.Items.Count == 0)
+                return;
+            if (ComboBox_EPC2.SelectedItem == null)
+                return;
+            str = ComboBox_EPC2.SelectedItem.ToString();
+            if (str == "")
+                return;
+            ENum = Convert.ToByte(str.Length / 4);
+            EPClength = Convert.ToByte(ENum * 2);
+            byte[] EPC = new byte[ENum];
+            EPC = HexStringToByteArray(str);
+            if (C_Reserve.Checked)
+                Mem = 0;
+            if (C_EPC.Checked)
+                Mem = 1;
+            if (C_TID.Checked)
+                Mem = 2;
+            if (C_User.Checked)
+                Mem = 3;
+            if (Edit_WordPtr.Text == "")
+            {
+                MessageBox.Show("Address of Tag Data is NULL", "Information");
+                return;
+            }
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Length of Data(Read/Block Erase) is NULL", "Information");
+                return;
+            }
+            if (Convert.ToInt32(Edit_WordPtr.Text) + Convert.ToInt32(textBox1.Text) > 120)
+                return;
+            if (Edit_AccessCode2.Text == "")
+            {
+                return;
+            }
+            WordPtr = Convert.ToByte(Edit_WordPtr.Text, 16);
+            Num = Convert.ToByte(textBox1.Text);
+            if (Edit_AccessCode2.Text.Length != 8)
+            {
+                return;
+            }
+            fPassWord = HexStringToByteArray(Edit_AccessCode2.Text);
+            if (Edit_WriteData.Text == "")
+                return;
+            s2 = Edit_WriteData.Text;
+            if (s2.Length % 4 != 0)
+            {
+                MessageBox.Show("The Number must be 4 times.", "Write");
+                return;
+            }
+            WNum = Convert.ToByte(s2.Length / 4);
+            byte[] Writedata = new byte[WNum * 2];
+            Writedata = HexStringToByteArray(s2);
+            Writedatalen = Convert.ToByte(WNum * 2);
+            if ((checkBox_pc.Checked) && (C_EPC.Checked))
+            {
+                WordPtr = 1;
+                Writedatalen = Convert.ToByte(Edit_WriteData.Text.Length / 2 + 2);
+                Writedata = HexStringToByteArray(textBox_pc.Text + Edit_WriteData.Text);
+            }
+            fCmdRet = StaticClassReaderB.WriteBlock_G2(ref fComAdr, EPC, Mem, WordPtr, Writedatalen, Writedata, fPassWord, Maskadr, MaskLen, MaskFlag, WrittenDataNum, EPClength, ref ferrorcode, frmcomportindex);
+            AddCmdLog("Write Block", "WriteBlock", fCmdRet, ferrorcode);
+            if (fCmdRet == 0)
+            {
+                StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + "'WriteBlock'Command Response=0x00" +
+                     "(completely write Data successfully)";
             }
         }
     }

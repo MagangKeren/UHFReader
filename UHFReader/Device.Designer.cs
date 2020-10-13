@@ -234,7 +234,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1098, 840);
+            this.tabControl1.Size = new System.Drawing.Size(1098, 892);
             this.tabControl1.TabIndex = 1;
             // 
             // TabSheet_CMD
@@ -395,7 +395,7 @@
             this.TabSheet_EPCC1G2.Location = new System.Drawing.Point(4, 25);
             this.TabSheet_EPCC1G2.Margin = new System.Windows.Forms.Padding(4);
             this.TabSheet_EPCC1G2.Name = "TabSheet_EPCC1G2";
-            this.TabSheet_EPCC1G2.Size = new System.Drawing.Size(1090, 811);
+            this.TabSheet_EPCC1G2.Size = new System.Drawing.Size(1090, 863);
             this.TabSheet_EPCC1G2.TabIndex = 2;
             this.TabSheet_EPCC1G2.Text = "EPCC1-G2 Test";
             this.TabSheet_EPCC1G2.UseVisualStyleBackColor = true;
@@ -426,6 +426,7 @@
             this.maskLen_textBox.Size = new System.Drawing.Size(161, 22);
             this.maskLen_textBox.TabIndex = 4;
             this.maskLen_textBox.Text = "00";
+            this.maskLen_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Edit_Len_6B_KeyPress);
             // 
             // label44
             // 
@@ -447,6 +448,7 @@
             this.maskadr_textbox.Size = new System.Drawing.Size(132, 22);
             this.maskadr_textbox.TabIndex = 2;
             this.maskadr_textbox.Text = "00";
+            this.maskadr_textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Edit_Len_6B_KeyPress);
             // 
             // label43
             // 
@@ -469,6 +471,7 @@
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Enabled";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // groupBox18
             // 
@@ -846,6 +849,7 @@
             this.Button_DestroyCard.TabIndex = 3;
             this.Button_DestroyCard.Text = "Kill Tag";
             this.Button_DestroyCard.UseVisualStyleBackColor = true;
+            this.Button_DestroyCard.Click += new System.EventHandler(this.Button_DestroyCard_Click);
             // 
             // Edit_DestroyCode
             // 
@@ -1020,6 +1024,7 @@
             this.Button_SetProtectState.TabIndex = 6;
             this.Button_SetProtectState.Text = "Set Protect";
             this.Button_SetProtectState.UseVisualStyleBackColor = true;
+            this.Button_SetProtectState.Click += new System.EventHandler(this.Button_SetProtectState_Click);
             // 
             // textBox2
             // 
@@ -1336,6 +1341,7 @@
             this.BlockWrite.TabIndex = 16;
             this.BlockWrite.Text = "BlockWrite";
             this.BlockWrite.UseVisualStyleBackColor = true;
+            this.BlockWrite.Click += new System.EventHandler(this.BlockWrite_Click_1);
             // 
             // ComboBox_EPC2
             // 
@@ -1356,6 +1362,7 @@
             this.button7.TabIndex = 14;
             this.button7.Text = "Clear";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Button_BlockErase
             // 
@@ -1366,6 +1373,7 @@
             this.Button_BlockErase.TabIndex = 13;
             this.Button_BlockErase.Text = "BlockErase";
             this.Button_BlockErase.UseVisualStyleBackColor = true;
+            this.Button_BlockErase.Click += new System.EventHandler(this.Button_BlockErase_Click);
             // 
             // Button_DataWrite
             // 
@@ -1376,6 +1384,7 @@
             this.Button_DataWrite.TabIndex = 12;
             this.Button_DataWrite.Text = "Write";
             this.Button_DataWrite.UseVisualStyleBackColor = true;
+            this.Button_DataWrite.Click += new System.EventHandler(this.Button_DataWrite_Click);
             // 
             // SpeedButton_Read_G2
             // 
@@ -1386,6 +1395,7 @@
             this.SpeedButton_Read_G2.TabIndex = 11;
             this.SpeedButton_Read_G2.Text = "Read";
             this.SpeedButton_Read_G2.UseVisualStyleBackColor = true;
+            this.SpeedButton_Read_G2.Click += new System.EventHandler(this.SpeedButton_Read_G2_Click);
             // 
             // Edit_WriteData
             // 
@@ -1987,7 +1997,7 @@
             // StatusBar1
             // 
             this.StatusBar1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.StatusBar1.Location = new System.Drawing.Point(0, 813);
+            this.StatusBar1.Location = new System.Drawing.Point(0, 865);
             this.StatusBar1.Margin = new System.Windows.Forms.Padding(4);
             this.StatusBar1.Name = "StatusBar1";
             this.StatusBar1.Panels.AddRange(new System.Windows.Forms.StatusBarPanel[] {
@@ -2016,15 +2026,40 @@
             this.Manufacturername.Name = "Manufacturername";
             this.Manufacturername.Text = "statusManufacturer nameBarPanel1";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Timer_Test_
+            // 
+            this.Timer_Test_.Tick += new System.EventHandler(this.Timer_Test__Tick_1);
+            // 
             // Timer_G2_Read
             // 
             this.Timer_G2_Read.Interval = 200;
+            this.Timer_G2_Read.Tick += new System.EventHandler(this.Timer_G2_Read_Tick_1);
+            // 
+            // Timer_G2_Alarm
+            // 
+            this.Timer_G2_Alarm.Tick += new System.EventHandler(this.Timer_G2_Alarm_Tick_1);
+            // 
+            // Timer_Test_6B
+            // 
+            this.Timer_Test_6B.Tick += new System.EventHandler(this.Timer_Test_6B_Tick_1);
+            // 
+            // Timer_6B_Read
+            // 
+            this.Timer_6B_Read.Tick += new System.EventHandler(this.Timer_6B_Read_Tick_1);
+            // 
+            // Timer_6B_Write
+            // 
+            this.Timer_6B_Write.Tick += new System.EventHandler(this.Timer_6B_Write_Tick_1);
             // 
             // Device
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 840);
+            this.ClientSize = new System.Drawing.Size(1098, 892);
             this.Controls.Add(this.StatusBar1);
             this.Controls.Add(this.tabControl1);
             this.Name = "Device";
