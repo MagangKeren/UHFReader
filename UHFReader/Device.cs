@@ -1120,97 +1120,6 @@ namespace UHFReader
                 Close();
         }
 
-        private void Button_DataWrite_Click(object sender, EventArgs e)
-        {
-            byte WordPtr, ENum;
-            byte Num = 0;
-            byte Mem = 0;
-            byte WNum = 0;
-            byte EPClength = 0;
-            byte Writedatalen = 0;
-            int WrittenDataNum = 0;
-            string s2, str;
-            byte[] CardData = new byte[320];
-            byte[] writedata = new byte[230];
-            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (checkBox1.Checked)
-                MaskFlag = 1;
-            else
-                MaskFlag = 0;
-            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
-            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
-            if (ComboBox_EPC2.Items.Count == 0)
-                return;
-            if (ComboBox_EPC2.SelectedItem == null)
-                return;
-            str = ComboBox_EPC2.SelectedItem.ToString();
-            if (str == "")
-                return;
-            ENum = Convert.ToByte(str.Length / 4);
-            EPClength = Convert.ToByte(ENum * 2);
-            byte[] EPC = new byte[ENum];
-            EPC = HexStringToByteArray(str);
-            if (C_Reserve.Checked)
-                Mem = 0;
-            if (C_EPC.Checked)
-                Mem = 1;
-            if (C_TID.Checked)
-                Mem = 2;
-            if (C_User.Checked)
-                Mem = 3;
-            if (Edit_WordPtr.Text == "")
-            {
-                MessageBox.Show("Address of Tag Data is NULL", "Information");
-                return;
-            }
-            if (textBox1.Text == "")
-            {
-                MessageBox.Show("Length of Data(Read/Block Erase) is NULL", "Information");
-                return;
-            }
-            if (Convert.ToInt32(Edit_WordPtr.Text) + Convert.ToInt32(textBox1.Text) > 120)
-                return;
-            if (Edit_AccessCode2.Text == "")
-            {
-                return;
-            }
-            WordPtr = Convert.ToByte(Edit_WordPtr.Text, 16);
-            Num = Convert.ToByte(textBox1.Text);
-            if (Edit_AccessCode2.Text.Length != 8)
-            {
-                return;
-            }
-            fPassWord = HexStringToByteArray(Edit_AccessCode2.Text);
-            if (Edit_WriteData.Text == "")
-                return;
-            s2 = Edit_WriteData.Text;
-            if (s2.Length % 4 != 0)
-            {
-                MessageBox.Show("The Number must be 4 times.", "Wtite");
-                return;
-            }
-            WNum = Convert.ToByte(s2.Length / 4);
-            byte[] Writedata = new byte[WNum * 2];
-            Writedata = HexStringToByteArray(s2);
-            Writedatalen = Convert.ToByte(WNum * 2);
-            if ((checkBox_pc.Checked) && (C_EPC.Checked))
-            {
-                WordPtr = 1;
-                Writedatalen = Convert.ToByte(Edit_WriteData.Text.Length / 2 + 2);
-                Writedata = HexStringToByteArray(textBox_pc.Text + Edit_WriteData.Text);
-            }
-            fCmdRet = StaticClassReaderB.WriteCard_G2(ref fComAdr, EPC, Mem, WordPtr, Writedatalen, Writedata, fPassWord, Maskadr, MaskLen, MaskFlag, WrittenDataNum, EPClength, ref ferrorcode, frmcomportindex);
-            AddCmdLog("Write data", "Write", fCmdRet, ferrorcode);
-            if (fCmdRet == 0)
-            {
-                StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + "'Write'Command Response=0x00" +
-                     "(completely write Data successfully)";
-            }
-        }
 
         private void Button_BlockErase_Click(object sender, EventArgs e)
         {
@@ -2230,6 +2139,98 @@ namespace UHFReader
 
         }
 
+        private void Button_DataWrite_Click(object sender, EventArgs e)
+        {
+            byte WordPtr, ENum;
+            byte Num = 0;
+            byte Mem = 0;
+            byte WNum = 0;
+            byte EPClength = 0;
+            byte Writedatalen = 0;
+            int WrittenDataNum = 0;
+            string s2, str;
+            byte[] CardData = new byte[320];
+            byte[] writedata = new byte[230];
+            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
+            {
+                fIsInventoryScan = false;
+                return;
+            }
+            if (checkBox1.Checked)
+                MaskFlag = 1;
+            else
+                MaskFlag = 0;
+            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
+            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
+            if (ComboBox_EPC2.Items.Count == 0)
+                return;
+            if (ComboBox_EPC2.SelectedItem == null)
+                return;
+            str = ComboBox_EPC2.SelectedItem.ToString();
+            if (str == "")
+                return;
+            ENum = Convert.ToByte(str.Length / 4);
+            EPClength = Convert.ToByte(ENum * 2);
+            byte[] EPC = new byte[ENum];
+            EPC = HexStringToByteArray(str);
+            if (C_Reserve.Checked)
+                Mem = 0;
+            if (C_EPC.Checked)
+                Mem = 1;
+            if (C_TID.Checked)
+                Mem = 2;
+            if (C_User.Checked)
+                Mem = 3;
+            if (Edit_WordPtr.Text == "")
+            {
+                MessageBox.Show("Address of Tag Data is NULL", "Information");
+                return;
+            }
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("Length of Data(Read/Block Erase) is NULL", "Information");
+                return;
+            }
+            if (Convert.ToInt32(Edit_WordPtr.Text) + Convert.ToInt32(textBox1.Text) > 120)
+                return;
+            if (Edit_AccessCode2.Text == "")
+            {
+                return;
+            }
+            WordPtr = Convert.ToByte(Edit_WordPtr.Text, 16);
+            Num = Convert.ToByte(textBox1.Text);
+            if (Edit_AccessCode2.Text.Length != 8)
+            {
+                return;
+            }
+            fPassWord = HexStringToByteArray(Edit_AccessCode2.Text);
+            if (Edit_WriteData.Text == "")
+                return;
+            s2 = Edit_WriteData.Text;
+            if (s2.Length % 4 != 0)
+            {
+                MessageBox.Show("The Number must be 4 times.", "Write");
+                return;
+            }
+            WNum = Convert.ToByte(s2.Length / 4);
+            byte[] Writedata = new byte[WNum * 2];
+            Writedata = HexStringToByteArray(s2);
+            Writedatalen = Convert.ToByte(WNum * 2);
+            if ((checkBox_pc.Checked) && (C_EPC.Checked))
+            {
+                WordPtr = 1;
+                Writedatalen = Convert.ToByte(Edit_WriteData.Text.Length / 2 + 2);
+                Writedata = HexStringToByteArray(textBox_pc.Text + Edit_WriteData.Text);
+            }
+            fCmdRet = StaticClassReaderB.WriteCard_G2(ref fComAdr, EPC, Mem, WordPtr, Writedatalen, Writedata, fPassWord, Maskadr, MaskLen, MaskFlag, WrittenDataNum, EPClength, ref ferrorcode, frmcomportindex);
+            AddCmdLog("Write data", "Write", fCmdRet, ferrorcode);
+            if (fCmdRet == 0)
+            {
+                StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + "'Write'Command Response=0x00" +
+                     "(completely write Data successfully)";
+            }
+        }
+
 
 
         private void BlockWrite_Click(object sender, EventArgs e)
@@ -2614,5 +2615,9 @@ namespace UHFReader
                      "(completely write Data successfully)";
             }
         }
+
+
+
+
     }
 }
