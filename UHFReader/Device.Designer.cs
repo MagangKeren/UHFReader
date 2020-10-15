@@ -245,7 +245,7 @@
             this.TabSheet_CMD.Margin = new System.Windows.Forms.Padding(4);
             this.TabSheet_CMD.Name = "TabSheet_CMD";
             this.TabSheet_CMD.Padding = new System.Windows.Forms.Padding(4);
-            this.TabSheet_CMD.Size = new System.Drawing.Size(1090, 811);
+            this.TabSheet_CMD.Size = new System.Drawing.Size(1090, 863);
             this.TabSheet_CMD.TabIndex = 1;
             this.TabSheet_CMD.Text = "Reader Parameter";
             // 
@@ -1435,6 +1435,7 @@
             this.Edit_WordPtr.Size = new System.Drawing.Size(120, 22);
             this.Edit_WordPtr.TabIndex = 7;
             this.Edit_WordPtr.Text = "00";
+            this.Edit_WordPtr.TextChanged += new System.EventHandler(this.Edit_WordPtr_TextChanged);
             // 
             // listBox1
             // 
@@ -1610,7 +1611,7 @@
             this.TabSheet_6B.Location = new System.Drawing.Point(4, 25);
             this.TabSheet_6B.Margin = new System.Windows.Forms.Padding(4);
             this.TabSheet_6B.Name = "TabSheet_6B";
-            this.TabSheet_6B.Size = new System.Drawing.Size(1090, 811);
+            this.TabSheet_6B.Size = new System.Drawing.Size(1090, 863);
             this.TabSheet_6B.TabIndex = 3;
             this.TabSheet_6B.Text = "18000-6B Test";
             this.TabSheet_6B.UseVisualStyleBackColor = true;

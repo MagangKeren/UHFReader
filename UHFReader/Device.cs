@@ -39,10 +39,12 @@ namespace UHFReader
         private int frmcomportindex;
         private bool ComOpen = false;
 
+
         //Device Main
         public Device()
         {
             InitializeComponent();
+            Edit_WordPtr.Text = "02";
         }
 
         private void RefreshStatus()
@@ -935,7 +937,7 @@ namespace UHFReader
                         ChangeSubItem(aListItem, 2, s);
                         if (!CheckBox_TID.Checked)
                         {
-                            if (ComboBox_EPC1.Items.IndexOf(sEPC) == -1)
+                            if (ComboBox_EPC2.Items.IndexOf(sEPC) == -1)
                             {
                                 ComboBox_EPC1.Items.Add(sEPC);
                                 ComboBox_EPC2.Items.Add(sEPC);
@@ -951,7 +953,7 @@ namespace UHFReader
             }
             if (!CheckBox_TID.Checked)
             {
-                if ((ComboBox_EPC1.Items.Count != 0))
+                if ((ComboBox_EPC2.Items.Count != 0))
                 {
                     ComboBox_EPC1.SelectedIndex = 0;
                     ComboBox_EPC2.SelectedIndex = 0;
@@ -2616,8 +2618,9 @@ namespace UHFReader
             }
         }
 
+        private void Edit_WordPtr_TextChanged(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
