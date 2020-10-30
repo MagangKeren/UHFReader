@@ -942,9 +942,7 @@ namespace UHFReader
                                 ComboBox_EPC1.Items.Add(sEPC);
                                 ComboBox_EPC2.Items.Add(sEPC);
                                 ComboBox_EPC3.Items.Add(sEPC);
-                                ComboBox_EPC4.Items.Add(sEPC);
-                                ComboBox_EPC5.Items.Add(sEPC);
-                                ComboBox_EPC6.Items.Add(sEPC);
+                             
                             }
                         }
 
@@ -958,9 +956,7 @@ namespace UHFReader
                     ComboBox_EPC1.SelectedIndex = 0;
                     ComboBox_EPC2.SelectedIndex = 0;
                     ComboBox_EPC3.SelectedIndex = 0;
-                    ComboBox_EPC4.SelectedIndex = 0;
-                    ComboBox_EPC5.SelectedIndex = 0;
-                    ComboBox_EPC6.SelectedIndex = 0;
+                  
                 }
             }
             fIsInventoryScan = false;
@@ -1226,10 +1222,6 @@ namespace UHFReader
             if (MessageBox.Show(this, "Kill the Tag  Confirmed?", "Information", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
-
-
-
-
             AddCmdLog("DestroyCard", "Kill Tag", fCmdRet);
             if (fCmdRet == 0)
                 StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + " 'Kill Tag'Command Response=0x00" +
@@ -1265,11 +1257,6 @@ namespace UHFReader
                 MaskFlag = 0;
             Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
             MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
-
-
-
-
-
 
             AddCmdLog("SetReadProtect_G2", "Set Single Tag Read Protection", fCmdRet);
             if (fCmdRet == 0)
@@ -1437,59 +1424,7 @@ namespace UHFReader
                 Timer_Test_.Interval = (ComboBox_IntervalTime.SelectedIndex + 4) * 10;
         }
 
-        private void SpeedButton_Query_6B_Click(object sender, EventArgs e)
-        {
-            Timer_Test_6B.Enabled = !Timer_Test_6B.Enabled;
-            if (!Timer_Test_6B.Enabled)
-            {
-                if (ListView_ID_6B.Items.Count != 0)
-                {
-                    SpeedButton_Read_6B.Enabled = true;
-                    SpeedButton_Write_6B.Enabled = true;
-                    Button14.Enabled = true;
-                    Button15.Enabled = true;
-                    if (Bycondition_6B.Checked)
-                    {
-                        Same_6B.Enabled = true;
-                        Different_6B.Enabled = true;
-                        Less_6B.Enabled = true;
-                        Greater_6B.Enabled = true;
-                    }
-                }
-                if (ListView_ID_6B.Items.Count == 0)
-                {
-                    SpeedButton_Read_6B.Enabled = false;
-                    SpeedButton_Write_6B.Enabled = false;
-                    Button14.Enabled = false;
-                    Button15.Enabled = false;
-                    if (Bycondition_6B.Checked)
-                    {
-                        Same_6B.Enabled = true;
-                        Different_6B.Enabled = true;
-                        Less_6B.Enabled = true;
-                        Greater_6B.Enabled = true;
-                    }
-                }
-                AddCmdLog("Inventory", "Exit Query", 0);
-                SpeedButton_Query_6B.Text = "Query ";
-            }
-            else
-            {
-                SpeedButton_Read_6B.Enabled = false;
-                SpeedButton_Write_6B.Enabled = false;
-                Button14.Enabled = false;
-                Button15.Enabled = false;
-                Same_6B.Enabled = false;
-                Different_6B.Enabled = false;
-                Less_6B.Enabled = false;
-                Greater_6B.Enabled = false;
-                ListView_ID_6B.Items.Clear();
-                ComboBox_ID1_6B.Items.Clear();
-                CardNum1 = 0;
-                list.Clear();
-                SpeedButton_Query_6B.Text = "Stop";
-            }
-        }
+        
         public void ChangeSubItem1(ListViewItem ListItem, int subItemIndex, string ItemText)
         {
             if (subItemIndex == 1)
@@ -1508,333 +1443,16 @@ namespace UHFReader
 
             }
         }
-        private void Inventory_6B()
-        {
-            int CardNum = 0;
-            byte[] ID_6B = new byte[2000];
-            byte[] ID2_6B = new byte[5000];
-            bool isonlistview;
-            string temps;
-            string s, ss, sID;
-            ListViewItem aListItem = new ListViewItem();
-            int i, j;
-            byte Condition = 0;
-            byte StartAddress;
-            byte mask = 0;
-            byte[] ConditionContent = new byte[300];
-            byte Contentlen;
-            if (Byone_6B.Checked)
-            {
-                fCmdRet = StaticClassReaderB.Inventory_6B(ref fComAdr, ID_6B, frmcomportindex);
-                if (fCmdRet == 0)
-                {
-                    byte[] daw = new byte[8];
-                    Array.Copy(ID_6B, daw, 8);
-                    temps = ByteArrayToHexString(daw);
-                    if (!list.Contains(temps))
-                    {
-                        CardNum1 = CardNum1 + 1;
-                        list.Add(temps);
-                    }
-                    while (ListView_ID_6B.Items.Count < CardNum1)
-                    {
-                        aListItem = ListView_ID_6B.Items.Add((ListView_ID_6B.Items.Count + 1).ToString());
-                        aListItem.SubItems.Add("");
-                        aListItem.SubItems.Add("");
-                        aListItem.SubItems.Add("");
-                    }
-                    isonlistview = false;
-                    for (i = 0; i < CardNum1; i++)     //判断是否在Listview列表内
-                    {
-                        if (temps == ListView_ID_6B.Items[i].SubItems[1].Text)
-                        {
-                            aListItem = ListView_ID_6B.Items[i];
-                            ChangeSubItem1(aListItem, 1, temps);
-                            isonlistview = true;
-                        }
-                    }
-                    if (!isonlistview)
-                    {
-                        // CardNum1 = Convert.ToByte(ListView_ID_6B.Items.Count+1);
-                        aListItem = ListView_ID_6B.Items[CardNum1 - 1];
-                        s = temps;
-                        ChangeSubItem1(aListItem, 1, s);
+      
+        
+       
+       
 
+        
+        
+        
 
-                    }
-                }
-
-                if (ComboBox_ID1_6B.Items.Count != 0)
-                    ComboBox_ID1_6B.SelectedIndex = 0;
-            }
-            if (Bycondition_6B.Checked)
-            {
-                if (Same_6B.Checked)
-                    Condition = 0;
-                else if (Different_6B.Checked)
-                    Condition = 1;
-                else if (Greater_6B.Checked)
-                    Condition = 2;
-                else if (Less_6B.Checked)
-                    Condition = 3;
-                if (Edit_ConditionContent_6B.Text == "")
-                    return;
-                ss = Edit_ConditionContent_6B.Text;
-                Contentlen = Convert.ToByte((Edit_ConditionContent_6B.Text).Length);
-                for (i = 0; i < 16 - Contentlen; i++)
-                    ss = ss + "0";
-                int Nlen = (ss.Length) / 2;
-                byte[] daw = new byte[Nlen];
-                daw = HexStringToByteArray(ss);
-                switch (Contentlen / 2)
-                {
-                    case 1:
-                        mask = 0x80;
-                        break;
-                    case 2:
-                        mask = 0xC0;
-                        break;
-                    case 3:
-                        mask = 0xE0;
-                        break;
-                    case 4:
-                        mask = 0XF0;
-                        break;
-                    case 5:
-                        mask = 0XF8;
-                        break;
-                    case 6:
-                        mask = 0XFC;
-                        break;
-                    case 7:
-                        mask = 0XFE;
-                        break;
-                    case 8:
-                        mask = 0XFF;
-                        break;
-                }
-                if (Edit_Query_StartAddress_6B.Text == "")
-                    return;
-                StartAddress = Convert.ToByte(Edit_Query_StartAddress_6B.Text);
-                fCmdRet = StaticClassReaderB.inventory2_6B(ref fComAdr, Condition, StartAddress, mask, daw, ID2_6B, ref CardNum, frmcomportindex);
-                if ((fCmdRet == 0x15) | (fCmdRet == 0x16) | (fCmdRet == 0x17) | (fCmdRet == 0x18) | (fCmdRet == 0xFB))
-                {
-                    byte[] daw1 = new byte[CardNum * 8];
-                    Array.Copy(ID2_6B, daw1, CardNum * 8);
-                    temps = ByteArrayToHexString(daw1);
-                    for (i = 0; i < CardNum; i++)
-                    {
-                        sID = temps.Substring(16 * i, 16);
-                        if ((sID.Length) != 16)
-                            return;
-                        if (CardNum == 0)
-                            return;
-                        while (ListView_ID_6B.Items.Count < CardNum)
-                        {
-                            aListItem = ListView_ID_6B.Items.Add((ListView_ID_6B.Items.Count + 1).ToString());
-                            aListItem.SubItems.Add("");
-                            aListItem.SubItems.Add("");
-                            aListItem.SubItems.Add("");
-                        }
-                        isonlistview = false;
-                        for (j = 0; j < ListView_ID_6B.Items.Count; j++)     //判断是否在Listview列表内
-                        {
-                            if (sID == ListView_ID_6B.Items[j].SubItems[1].Text)
-                            {
-                                aListItem = ListView_ID_6B.Items[j];
-                                ChangeSubItem1(aListItem, 1, sID);
-                                isonlistview = true;
-                            }
-                        }
-                        if (!isonlistview)
-                        {
-                            // CardNum1 = Convert.ToByte(ListView_ID_6B.Items.Count+1);
-                            aListItem = ListView_ID_6B.Items[i];
-                            s = sID;
-                            ChangeSubItem1(aListItem, 1, s);
-
-                        }
-                    }
-                    if (ComboBox_ID1_6B.Items.Count != 0)
-                        ComboBox_ID1_6B.SelectedIndex = 0;
-                }
-            }
-            if (Timer_Test_6B.Enabled)
-            {
-                if (Bycondition_6B.Checked)
-                {
-                    if (fCmdRet != 0)
-                        AddCmdLog("Inventory", "Query tag", fCmdRet);
-                }
-                else if (fCmdRet == 0XFB) //说明还未将所有卡读取完
-                {
-
-                    StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + " 'Query Tag'Command Response=0xFB" +
-                         "(No Tag Operable)";
-                }
-                else if (fCmdRet == 0)
-                    StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + " 'Query Tag'Command Response=0x00" +
-                         "(Find a Tag)";
-                else
-                    AddCmdLog("Inventory", "Query Tag", fCmdRet);
-                if (fCmdRet == 0xEE)
-                    StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + " 'Query Tag'Command Response=0xee" +
-                                  "(Response Command Error)";
-            }
-            if (fAppClosed)
-                Close();
-        }
-        private void Timer_Test_6B_Tick(object sender, EventArgs e)
-        {
-            if (fisinventoryscan_6B)
-                return;
-            fisinventoryscan_6B = true;
-            Inventory_6B();
-            fisinventoryscan_6B = false;
-        }
-
-        private void SpeedButton_Read_6B_Click(object sender, EventArgs e)
-        {
-            if ((Edit_StartAddress_6B.Text == "") | (Edit_Len_6B.Text == ""))
-            {
-                MessageBox.Show("Start address or length is empty!Please input!", "Information");
-                return;
-            }
-            Timer_6B_Read.Enabled = !Timer_6B_Read.Enabled;
-            if (!Timer_6B_Read.Enabled)
-            {
-                AddCmdLog("Read", "Exit Read", 0);
-                SpeedButton_Read_6B.Text = "Read ";
-                SpeedButton_Query_6B.Enabled = true;
-                SpeedButton_Write_6B.Enabled = true;
-                Button14.Enabled = true;
-                Button15.Enabled = true;
-                if (Bycondition_6B.Checked)
-                {
-                    Same_6B.Enabled = true;
-                    Different_6B.Enabled = true;
-                    Less_6B.Enabled = true;
-                    Greater_6B.Enabled = true;
-                }
-            }
-            else
-            {
-                SpeedButton_Query_6B.Enabled = false;
-                SpeedButton_Write_6B.Enabled = false;
-                Button14.Enabled = false;
-                Button15.Enabled = false;
-                if (Bycondition_6B.Checked)
-                {
-                    Same_6B.Enabled = false;
-                    Different_6B.Enabled = false;
-                    Less_6B.Enabled = false;
-                    Greater_6B.Enabled = false;
-                }
-                SpeedButton_Read_6B.Text = "Stop";
-            }
-        }
-        private void Read_6B()
-        {
-            string temp, temps;
-            byte[] CardData = new byte[320];
-            byte[] ID_6B = new byte[8];
-            byte Num, StartAddress;
-            if (ComboBox_ID1_6B.Items.Count == 0)
-                return;
-            if (ComboBox_ID1_6B.SelectedItem == null)
-                return;
-            temp = ComboBox_ID1_6B.SelectedItem.ToString();
-            if (temp == "")
-                return;
-            ID_6B = HexStringToByteArray(temp);
-            if (Edit_StartAddress_6B.Text == "")
-                return;
-            StartAddress = Convert.ToByte(Edit_StartAddress_6B.Text, 16);
-            if (Edit_Len_6B.Text == "")
-                return;
-            Num = Convert.ToByte(Edit_Len_6B.Text);
-            fCmdRet = StaticClassReaderB.ReadCard_6B(ref fComAdr, ID_6B, StartAddress, Num, CardData, ref ferrorcode, frmcomportindex);
-            if (fCmdRet == 0)
-            {
-                byte[] data = new byte[Num];
-                Array.Copy(CardData, data, Num);
-                temps = ByteArrayToHexString(data);
-                listBox2.Items.Add(temps);
-            }
-            if (fAppClosed)
-                Close();
-        }
-
-        private void Timer_6B_Read_Tick(object sender, EventArgs e)
-        {
-            if (fTimer_6B_ReadWrite)
-                return;
-            fTimer_6B_ReadWrite = true;
-            Read_6B();
-            fTimer_6B_ReadWrite = false;
-        }
-
-        private void SpeedButton_Write_6B_Click(object sender, EventArgs e)
-        {
-            if ((Edit_WriteData_6B.Text == "") | ((Edit_WriteData_6B.Text.Length % 2) != 0))
-            {
-                MessageBox.Show("Please input in bytes in hexadecimal form!", "Information");
-                return;
-            }
-            if ((Edit_StartAddress_6B.Text == "") | (Edit_Len_6B.Text == ""))
-            {
-                MessageBox.Show("Start address or length is empty!Please input!", "Information");
-                return;
-            }
-            Timer_6B_Write.Enabled = !Timer_6B_Write.Enabled;
-            if (!Timer_6B_Write.Enabled)
-            {
-                AddCmdLog("Wtite", "Exit Query", 0);
-                SpeedButton_Write_6B.Text = "Write ";
-            }
-            else
-            {
-                SpeedButton_Write_6B.Text = "Stop";
-            }
-        }
-        private void Write_6B()
-        {
-            string temp;
-            byte[] CardData = new byte[320];
-            byte[] ID_6B = new byte[8];
-            byte StartAddress;
-            byte Writedatalen;
-            int writtenbyte = 0;
-            if (ComboBox_ID1_6B.Items.Count == 0)
-                return;
-            if (ComboBox_ID1_6B.SelectedItem == null)
-                return;
-            temp = ComboBox_ID1_6B.SelectedItem.ToString();
-            if (temp == "")
-                return;
-            ID_6B = HexStringToByteArray(temp);
-            if (Edit_StartAddress_6B.Text == "")
-                return;
-            StartAddress = Convert.ToByte(Edit_StartAddress_6B.Text);
-            if ((Edit_WriteData_6B.Text == "") | (Edit_WriteData_6B.Text.Length % 2) != 0)
-                return;
-            Writedatalen = Convert.ToByte(Edit_WriteData_6B.Text.Length / 2);
-            byte[] Writedata = new byte[Writedatalen];
-            Writedata = HexStringToByteArray(Edit_WriteData_6B.Text);
-            fCmdRet = StaticClassReaderB.WriteCard_6B(ref fComAdr, ID_6B, StartAddress, Writedata, Writedatalen, ref writtenbyte, ref ferrorcode, frmcomportindex);
-            AddCmdLog("WriteCard", "Write", fCmdRet);
-            if (fAppClosed)
-                Close();
-        }
-
-        private void Timer_6B_Write_Tick(object sender, EventArgs e)
-        {
-            if (fTimer_6B_ReadWrite)
-                return;
-            fTimer_6B_ReadWrite = true;
-            Write_6B();
-            fTimer_6B_ReadWrite = false;
-        }
+        
 
         private void Button14_Click(object sender, EventArgs e)
         {
@@ -1925,28 +1543,6 @@ namespace UHFReader
             }
         }
 
-        private void Byone_6B_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((!Timer_6B_Read.Enabled) & (!Timer_6B_Write.Enabled) & (!Timer_Test_6B.Enabled))
-            {
-                Same_6B.Enabled = false;
-                Different_6B.Enabled = false;
-                Less_6B.Enabled = false;
-                Greater_6B.Enabled = false;
-            }
-        }
-
-        private void Bycondition_6B_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((!Timer_6B_Read.Enabled) & (!Timer_6B_Write.Enabled) & (!Timer_Test_6B.Enabled))
-            {
-                Same_6B.Enabled = true;
-                Different_6B.Enabled = true;
-                Less_6B.Enabled = true;
-                Greater_6B.Enabled = true;
-            }
-        }
-
         private void C_EPC_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox_pc.Checked)
@@ -2027,9 +1623,7 @@ namespace UHFReader
                 checkBox1.Enabled = false;
             }
 
-            Timer_Test_6B.Enabled = false;
-            Timer_6B_Read.Enabled = false;
-            Timer_6B_Write.Enabled = false;
+            
             SpeedButton_Query_6B.Text = "Query";
             SpeedButton_Read_6B.Text = "Read";
             SpeedButton_Write_6B.Text = "Write";
@@ -2231,6 +1825,7 @@ namespace UHFReader
                 StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() + "'Write'Command Response=0x00" +
                      "(completely write Data successfully)";
             }
+            
         }
 
 
@@ -2384,126 +1979,19 @@ namespace UHFReader
             }
         }
 
-        private void Timer_6B_Write_Tick_1(object sender, EventArgs e)
-        {
-            if (fTimer_6B_ReadWrite)
-                return;
-            fTimer_6B_ReadWrite = true;
-            Write_6B();
-            fTimer_6B_ReadWrite = false;
-        }
-
-        private void Timer_6B_Read_Tick_1(object sender, EventArgs e)
-        {
-            if (fTimer_6B_ReadWrite)
-                return;
-            fTimer_6B_ReadWrite = true;
-            Read_6B();
-            fTimer_6B_ReadWrite = false;
-        }
+      
+       
 
         private void Timer_G2_Alarm_Tick_1(object sender, EventArgs e)
         {
             if (fTimer_6B_ReadWrite)
                 return;
             fTimer_6B_ReadWrite = true;
-            Read_6B();
+     
             fTimer_6B_ReadWrite = false;
         }
 
-        private void Timer_G2_Read_Tick_1(object sender, EventArgs e)
-        {
-            if (fIsInventoryScan)
-                return;
-            fIsInventoryScan = true;
-            byte WordPtr, ENum;
-            byte Num = 0;
-            byte Mem = 0;
-            byte EPClength = 0;
-            string str;
-            byte[] CardData = new byte[320];
-            if ((maskadr_textbox.Text == "") || (maskLen_textBox.Text == ""))
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (checkBox1.Checked)
-                MaskFlag = 1;
-            else
-                MaskFlag = 0;
-            Maskadr = Convert.ToByte(maskadr_textbox.Text, 16);
-            MaskLen = Convert.ToByte(maskLen_textBox.Text, 16);
-            if (textBox1.Text == "")
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (ComboBox_EPC2.Items.Count == 0)
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (ComboBox_EPC2.SelectedItem == null)
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            str = ComboBox_EPC2.SelectedItem.ToString();
-            if (str == "")
-            {
-                // fIsInventoryScan = false;
-                //  return;
-            }
-            ENum = Convert.ToByte(str.Length / 4);
-            EPClength = Convert.ToByte(str.Length / 2);
-            byte[] EPC = new byte[ENum];
-            EPC = HexStringToByteArray(str);
-            if (C_Reserve.Checked)
-                Mem = 0;
-            if (C_EPC.Checked)
-                Mem = 1;
-            if (C_TID.Checked)
-                Mem = 2;
-            if (C_User.Checked)
-                Mem = 3;
-            if (Edit_AccessCode2.Text == "")
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            if (Edit_WordPtr.Text == "")
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            WordPtr = Convert.ToByte(Edit_WordPtr.Text, 16);
-            Num = Convert.ToByte(textBox1.Text);
-            if (Edit_AccessCode2.Text.Length != 8)
-            {
-                fIsInventoryScan = false;
-                return;
-            }
-            fPassWord = HexStringToByteArray(Edit_AccessCode2.Text);
-            fCmdRet = StaticClassReaderB.ReadCard_G2(ref fComAdr, EPC, Mem, WordPtr, Num, fPassWord, Maskadr, MaskLen, MaskFlag, CardData, EPClength, ref ferrorcode, frmcomportindex);
-            if (fCmdRet == 0)
-            {
-                byte[] daw = new byte[Num * 2];
-                Array.Copy(CardData, daw, Num * 2);
-                listBox1.Items.Add(ByteArrayToHexString(daw));
-                listBox1.SelectedIndex = listBox1.Items.Count - 1;
-                AddCmdLog("ReadData", "Read", fCmdRet);
-            }
-            if (ferrorcode != -1)
-            {
-                StatusBar1.Panels[0].Text = DateTime.Now.ToLongTimeString() +
-                 " 'Read' Response ErrorCode=0x" + Convert.ToString(ferrorcode, 2) +
-                 "(" + GetErrorCodeDesc(ferrorcode) + ")";
-                ferrorcode = -1;
-            }
-            fIsInventoryScan = false;
-            if (fAppClosed)
-                Close();
-        }
+       
 
         private void Timer_Test__Tick_1(object sender, EventArgs e)
         {
@@ -2522,7 +2010,7 @@ namespace UHFReader
             if (fisinventoryscan_6B)
                 return;
             fisinventoryscan_6B = true;
-            Inventory_6B();
+            
             fisinventoryscan_6B = false;
         }
 
@@ -2619,6 +2107,11 @@ namespace UHFReader
         }
 
         private void Edit_WordPtr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListView1_EPC_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

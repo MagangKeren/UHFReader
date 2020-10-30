@@ -49,37 +49,6 @@
             this.maskadr_textbox = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.Button_LockUserBlock_G2 = new System.Windows.Forms.Button();
-            this.Edit_AccessCode6 = new System.Windows.Forms.TextBox();
-            this.ComboBox_BlockNum = new System.Windows.Forms.ComboBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.ComboBox_EPC6 = new System.Windows.Forms.ComboBox();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.Label_Alarm = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.Button_SetEASAlarm_G2 = new System.Windows.Forms.Button();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.NoAlarm_G2 = new System.Windows.Forms.RadioButton();
-            this.Alarm_G2 = new System.Windows.Forms.RadioButton();
-            this.Edit_AccessCode5 = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.ComboBox_EPC5 = new System.Windows.Forms.ComboBox();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.Button_CheckReadProtected_G2 = new System.Windows.Forms.Button();
-            this.Button_RemoveReadProtect_G2 = new System.Windows.Forms.Button();
-            this.Button_SetMultiReadProtect_G2 = new System.Windows.Forms.Button();
-            this.Button_SetReadProtect_G2 = new System.Windows.Forms.Button();
-            this.Edit_AccessCode4 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.ComboBox_EPC4 = new System.Windows.Forms.ComboBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.Button_WriteEPC_G2 = new System.Windows.Forms.Button();
-            this.Edit_AccessCode3 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.Edit_WriteEPC = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.Button_DestroyCard = new System.Windows.Forms.Button();
             this.Edit_DestroyCode = new System.Windows.Forms.TextBox();
@@ -96,27 +65,6 @@
             this.ComboBox_IntervalTime = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.Button_SetProtectState = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.AlwaysNot2 = new System.Windows.Forms.RadioButton();
-            this.Always2 = new System.Windows.Forms.RadioButton();
-            this.Proect2 = new System.Windows.Forms.RadioButton();
-            this.NoProect2 = new System.Windows.Forms.RadioButton();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.P_User = new System.Windows.Forms.RadioButton();
-            this.P_TID = new System.Windows.Forms.RadioButton();
-            this.P_EPC = new System.Windows.Forms.RadioButton();
-            this.P_Reserve = new System.Windows.Forms.RadioButton();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.AlwaysNot = new System.Windows.Forms.RadioButton();
-            this.Always = new System.Windows.Forms.RadioButton();
-            this.Proect = new System.Windows.Forms.RadioButton();
-            this.NoProect = new System.Windows.Forms.RadioButton();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.AccessCode = new System.Windows.Forms.RadioButton();
-            this.DestroyCode = new System.Windows.Forms.RadioButton();
             this.ComboBox_EPC1 = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox_pc = new System.Windows.Forms.TextBox();
@@ -190,27 +138,15 @@
             this.Timer_Test_ = new System.Windows.Forms.Timer(this.components);
             this.Timer_G2_Read = new System.Windows.Forms.Timer(this.components);
             this.Timer_G2_Alarm = new System.Windows.Forms.Timer(this.components);
-            this.Timer_Test_6B = new System.Windows.Forms.Timer(this.components);
-            this.Timer_6B_Read = new System.Windows.Forms.Timer(this.components);
-            this.Timer_6B_Write = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.TabSheet_CMD.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             this.TabSheet_EPCC1G2.SuspendLayout();
             this.groupBox31.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox14.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox33.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -383,10 +319,6 @@
             // TabSheet_EPCC1G2
             // 
             this.TabSheet_EPCC1G2.Controls.Add(this.groupBox31);
-            this.TabSheet_EPCC1G2.Controls.Add(this.groupBox18);
-            this.TabSheet_EPCC1G2.Controls.Add(this.groupBox16);
-            this.TabSheet_EPCC1G2.Controls.Add(this.groupBox15);
-            this.TabSheet_EPCC1G2.Controls.Add(this.groupBox14);
             this.TabSheet_EPCC1G2.Controls.Add(this.groupBox13);
             this.TabSheet_EPCC1G2.Controls.Add(this.groupBox12);
             this.TabSheet_EPCC1G2.Controls.Add(this.groupBox7);
@@ -472,358 +404,6 @@
             this.checkBox1.Text = "Enabled";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.Button_LockUserBlock_G2);
-            this.groupBox18.Controls.Add(this.Edit_AccessCode6);
-            this.groupBox18.Controls.Add(this.ComboBox_BlockNum);
-            this.groupBox18.Controls.Add(this.label30);
-            this.groupBox18.Controls.Add(this.label29);
-            this.groupBox18.Controls.Add(this.ComboBox_EPC6);
-            this.groupBox18.Location = new System.Drawing.Point(647, 705);
-            this.groupBox18.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox18.Size = new System.Drawing.Size(433, 125);
-            this.groupBox18.TabIndex = 8;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Lock Block for User (Permanently Lock)";
-            // 
-            // Button_LockUserBlock_G2
-            // 
-            this.Button_LockUserBlock_G2.Location = new System.Drawing.Point(301, 88);
-            this.Button_LockUserBlock_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_LockUserBlock_G2.Name = "Button_LockUserBlock_G2";
-            this.Button_LockUserBlock_G2.Size = new System.Drawing.Size(119, 31);
-            this.Button_LockUserBlock_G2.TabIndex = 5;
-            this.Button_LockUserBlock_G2.Text = "Lock";
-            this.Button_LockUserBlock_G2.UseVisualStyleBackColor = true;
-            // 
-            // Edit_AccessCode6
-            // 
-            this.Edit_AccessCode6.Location = new System.Drawing.Point(179, 92);
-            this.Edit_AccessCode6.Margin = new System.Windows.Forms.Padding(4);
-            this.Edit_AccessCode6.MaxLength = 8;
-            this.Edit_AccessCode6.Name = "Edit_AccessCode6";
-            this.Edit_AccessCode6.Size = new System.Drawing.Size(112, 22);
-            this.Edit_AccessCode6.TabIndex = 4;
-            this.Edit_AccessCode6.Text = "00000000";
-            // 
-            // ComboBox_BlockNum
-            // 
-            this.ComboBox_BlockNum.FormattingEnabled = true;
-            this.ComboBox_BlockNum.Location = new System.Drawing.Point(179, 53);
-            this.ComboBox_BlockNum.Margin = new System.Windows.Forms.Padding(4);
-            this.ComboBox_BlockNum.Name = "ComboBox_BlockNum";
-            this.ComboBox_BlockNum.Size = new System.Drawing.Size(115, 24);
-            this.ComboBox_BlockNum.TabIndex = 3;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(12, 87);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(118, 34);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "Access Password\r\n(8 Hex):";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(12, 49);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(139, 34);
-            this.label29.TabIndex = 1;
-            this.label29.Text = "Address of Tag Data\r\n(Word):";
-            // 
-            // ComboBox_EPC6
-            // 
-            this.ComboBox_EPC6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox_EPC6.FormattingEnabled = true;
-            this.ComboBox_EPC6.Location = new System.Drawing.Point(8, 20);
-            this.ComboBox_EPC6.Margin = new System.Windows.Forms.Padding(4);
-            this.ComboBox_EPC6.Name = "ComboBox_EPC6";
-            this.ComboBox_EPC6.Size = new System.Drawing.Size(416, 24);
-            this.ComboBox_EPC6.TabIndex = 0;
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.Label_Alarm);
-            this.groupBox16.Controls.Add(this.button4);
-            this.groupBox16.Controls.Add(this.Button_SetEASAlarm_G2);
-            this.groupBox16.Controls.Add(this.groupBox17);
-            this.groupBox16.Controls.Add(this.Edit_AccessCode5);
-            this.groupBox16.Controls.Add(this.label28);
-            this.groupBox16.Controls.Add(this.ComboBox_EPC5);
-            this.groupBox16.Location = new System.Drawing.Point(647, 559);
-            this.groupBox16.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox16.Size = new System.Drawing.Size(433, 144);
-            this.groupBox16.TabIndex = 7;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "EAS Alarm";
-            // 
-            // Label_Alarm
-            // 
-            this.Label_Alarm.AutoSize = true;
-            this.Label_Alarm.Font = new System.Drawing.Font("MS Reference Sans Serif", 30.3F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)), true);
-            this.Label_Alarm.ForeColor = System.Drawing.Color.Red;
-            this.Label_Alarm.Location = new System.Drawing.Point(324, 48);
-            this.Label_Alarm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label_Alarm.Name = "Label_Alarm";
-            this.Label_Alarm.Size = new System.Drawing.Size(62, 56);
-            this.Label_Alarm.TabIndex = 14;
-            this.Label_Alarm.Text = "l";
-            // 
-            // button4
-            // 
-            this.button4.Enabled = false;
-            this.button4.Location = new System.Drawing.Point(301, 108);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(119, 31);
-            this.button4.TabIndex = 13;
-            this.button4.Text = "Check Alarm";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // Button_SetEASAlarm_G2
-            // 
-            this.Button_SetEASAlarm_G2.Location = new System.Drawing.Point(147, 108);
-            this.Button_SetEASAlarm_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_SetEASAlarm_G2.Name = "Button_SetEASAlarm_G2";
-            this.Button_SetEASAlarm_G2.Size = new System.Drawing.Size(129, 31);
-            this.Button_SetEASAlarm_G2.TabIndex = 12;
-            this.Button_SetEASAlarm_G2.Text = "Alarm Setting";
-            this.Button_SetEASAlarm_G2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.NoAlarm_G2);
-            this.groupBox17.Controls.Add(this.Alarm_G2);
-            this.groupBox17.Location = new System.Drawing.Point(8, 79);
-            this.groupBox17.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox17.Size = new System.Drawing.Size(133, 63);
-            this.groupBox17.TabIndex = 11;
-            this.groupBox17.TabStop = false;
-            // 
-            // NoAlarm_G2
-            // 
-            this.NoAlarm_G2.AutoSize = true;
-            this.NoAlarm_G2.Location = new System.Drawing.Point(7, 36);
-            this.NoAlarm_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.NoAlarm_G2.Name = "NoAlarm_G2";
-            this.NoAlarm_G2.Size = new System.Drawing.Size(87, 21);
-            this.NoAlarm_G2.TabIndex = 1;
-            this.NoAlarm_G2.TabStop = true;
-            this.NoAlarm_G2.Text = "No Alarm";
-            this.NoAlarm_G2.UseVisualStyleBackColor = true;
-            // 
-            // Alarm_G2
-            // 
-            this.Alarm_G2.AutoSize = true;
-            this.Alarm_G2.Location = new System.Drawing.Point(7, 13);
-            this.Alarm_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Alarm_G2.Name = "Alarm_G2";
-            this.Alarm_G2.Size = new System.Drawing.Size(65, 21);
-            this.Alarm_G2.TabIndex = 0;
-            this.Alarm_G2.TabStop = true;
-            this.Alarm_G2.Text = "Alarm";
-            this.Alarm_G2.UseVisualStyleBackColor = true;
-            // 
-            // Edit_AccessCode5
-            // 
-            this.Edit_AccessCode5.Location = new System.Drawing.Point(143, 51);
-            this.Edit_AccessCode5.Margin = new System.Windows.Forms.Padding(4);
-            this.Edit_AccessCode5.MaxLength = 8;
-            this.Edit_AccessCode5.Name = "Edit_AccessCode5";
-            this.Edit_AccessCode5.Size = new System.Drawing.Size(132, 22);
-            this.Edit_AccessCode5.TabIndex = 10;
-            this.Edit_AccessCode5.Text = "00000000";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(8, 47);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(118, 34);
-            this.label28.TabIndex = 9;
-            this.label28.Text = "Access Password\r\n(8 Hex):";
-            // 
-            // ComboBox_EPC5
-            // 
-            this.ComboBox_EPC5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox_EPC5.FormattingEnabled = true;
-            this.ComboBox_EPC5.Location = new System.Drawing.Point(8, 17);
-            this.ComboBox_EPC5.Margin = new System.Windows.Forms.Padding(4);
-            this.ComboBox_EPC5.Name = "ComboBox_EPC5";
-            this.ComboBox_EPC5.Size = new System.Drawing.Size(416, 24);
-            this.ComboBox_EPC5.TabIndex = 8;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.Button_CheckReadProtected_G2);
-            this.groupBox15.Controls.Add(this.Button_RemoveReadProtect_G2);
-            this.groupBox15.Controls.Add(this.Button_SetMultiReadProtect_G2);
-            this.groupBox15.Controls.Add(this.Button_SetReadProtect_G2);
-            this.groupBox15.Controls.Add(this.Edit_AccessCode4);
-            this.groupBox15.Controls.Add(this.label27);
-            this.groupBox15.Controls.Add(this.ComboBox_EPC4);
-            this.groupBox15.Location = new System.Drawing.Point(647, 323);
-            this.groupBox15.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox15.Size = new System.Drawing.Size(433, 233);
-            this.groupBox15.TabIndex = 6;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Read Protection";
-            // 
-            // Button_CheckReadProtected_G2
-            // 
-            this.Button_CheckReadProtected_G2.Enabled = false;
-            this.Button_CheckReadProtected_G2.Location = new System.Drawing.Point(8, 197);
-            this.Button_CheckReadProtected_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_CheckReadProtected_G2.Name = "Button_CheckReadProtected_G2";
-            this.Button_CheckReadProtected_G2.Size = new System.Drawing.Size(417, 31);
-            this.Button_CheckReadProtected_G2.TabIndex = 6;
-            this.Button_CheckReadProtected_G2.Text = "Detect Single Tag Read Protection without EPC Password";
-            this.Button_CheckReadProtected_G2.UseVisualStyleBackColor = true;
-            // 
-            // Button_RemoveReadProtect_G2
-            // 
-            this.Button_RemoveReadProtect_G2.Enabled = false;
-            this.Button_RemoveReadProtect_G2.Location = new System.Drawing.Point(8, 160);
-            this.Button_RemoveReadProtect_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_RemoveReadProtect_G2.Name = "Button_RemoveReadProtect_G2";
-            this.Button_RemoveReadProtect_G2.Size = new System.Drawing.Size(417, 31);
-            this.Button_RemoveReadProtect_G2.TabIndex = 5;
-            this.Button_RemoveReadProtect_G2.Text = "Reset Single Tag Read Protection without EPC";
-            this.Button_RemoveReadProtect_G2.UseVisualStyleBackColor = true;
-            // 
-            // Button_SetMultiReadProtect_G2
-            // 
-            this.Button_SetMultiReadProtect_G2.Enabled = false;
-            this.Button_SetMultiReadProtect_G2.Location = new System.Drawing.Point(8, 123);
-            this.Button_SetMultiReadProtect_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_SetMultiReadProtect_G2.Name = "Button_SetMultiReadProtect_G2";
-            this.Button_SetMultiReadProtect_G2.Size = new System.Drawing.Size(417, 31);
-            this.Button_SetMultiReadProtect_G2.TabIndex = 4;
-            this.Button_SetMultiReadProtect_G2.Text = "Set Single Tag Read Protection without EPC";
-            this.Button_SetMultiReadProtect_G2.UseVisualStyleBackColor = true;
-            // 
-            // Button_SetReadProtect_G2
-            // 
-            this.Button_SetReadProtect_G2.Enabled = false;
-            this.Button_SetReadProtect_G2.Location = new System.Drawing.Point(8, 85);
-            this.Button_SetReadProtect_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_SetReadProtect_G2.Name = "Button_SetReadProtect_G2";
-            this.Button_SetReadProtect_G2.Size = new System.Drawing.Size(417, 31);
-            this.Button_SetReadProtect_G2.TabIndex = 3;
-            this.Button_SetReadProtect_G2.Text = "Set Single Tag Read Protection";
-            this.Button_SetReadProtect_G2.UseVisualStyleBackColor = true;
-            // 
-            // Edit_AccessCode4
-            // 
-            this.Edit_AccessCode4.Location = new System.Drawing.Point(143, 52);
-            this.Edit_AccessCode4.Margin = new System.Windows.Forms.Padding(4);
-            this.Edit_AccessCode4.MaxLength = 8;
-            this.Edit_AccessCode4.Name = "Edit_AccessCode4";
-            this.Edit_AccessCode4.Size = new System.Drawing.Size(132, 22);
-            this.Edit_AccessCode4.TabIndex = 2;
-            this.Edit_AccessCode4.Text = "00000000";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(8, 48);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(118, 34);
-            this.label27.TabIndex = 1;
-            this.label27.Text = "Access Password\r\n(8 Hex):";
-            // 
-            // ComboBox_EPC4
-            // 
-            this.ComboBox_EPC4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboBox_EPC4.FormattingEnabled = true;
-            this.ComboBox_EPC4.Location = new System.Drawing.Point(11, 19);
-            this.ComboBox_EPC4.Margin = new System.Windows.Forms.Padding(4);
-            this.ComboBox_EPC4.Name = "ComboBox_EPC4";
-            this.ComboBox_EPC4.Size = new System.Drawing.Size(413, 24);
-            this.ComboBox_EPC4.TabIndex = 0;
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.Button_WriteEPC_G2);
-            this.groupBox14.Controls.Add(this.Edit_AccessCode3);
-            this.groupBox14.Controls.Add(this.label26);
-            this.groupBox14.Controls.Add(this.Edit_WriteEPC);
-            this.groupBox14.Controls.Add(this.label25);
-            this.groupBox14.Location = new System.Drawing.Point(647, 227);
-            this.groupBox14.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox14.Size = new System.Drawing.Size(433, 95);
-            this.groupBox14.TabIndex = 5;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Write EPC(Random write one tag in the antenna)";
-            // 
-            // Button_WriteEPC_G2
-            // 
-            this.Button_WriteEPC_G2.Enabled = false;
-            this.Button_WriteEPC_G2.Location = new System.Drawing.Point(325, 57);
-            this.Button_WriteEPC_G2.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_WriteEPC_G2.Name = "Button_WriteEPC_G2";
-            this.Button_WriteEPC_G2.Size = new System.Drawing.Size(100, 31);
-            this.Button_WriteEPC_G2.TabIndex = 4;
-            this.Button_WriteEPC_G2.Text = "Write EPC";
-            this.Button_WriteEPC_G2.UseVisualStyleBackColor = true;
-            // 
-            // Edit_AccessCode3
-            // 
-            this.Edit_AccessCode3.Location = new System.Drawing.Point(143, 60);
-            this.Edit_AccessCode3.Margin = new System.Windows.Forms.Padding(4);
-            this.Edit_AccessCode3.MaxLength = 8;
-            this.Edit_AccessCode3.Name = "Edit_AccessCode3";
-            this.Edit_AccessCode3.Size = new System.Drawing.Size(132, 22);
-            this.Edit_AccessCode3.TabIndex = 3;
-            this.Edit_AccessCode3.Text = "00000000";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(8, 53);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(118, 34);
-            this.label26.TabIndex = 2;
-            this.label26.Text = "Access Password\r\n(8 Hex):";
-            // 
-            // Edit_WriteEPC
-            // 
-            this.Edit_WriteEPC.Location = new System.Drawing.Point(103, 23);
-            this.Edit_WriteEPC.Margin = new System.Windows.Forms.Padding(4);
-            this.Edit_WriteEPC.MaxLength = 60;
-            this.Edit_WriteEPC.Name = "Edit_WriteEPC";
-            this.Edit_WriteEPC.Size = new System.Drawing.Size(321, 22);
-            this.Edit_WriteEPC.TabIndex = 1;
-            this.Edit_WriteEPC.Text = "0000";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(8, 19);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(81, 34);
-            this.label25.TabIndex = 0;
-            this.label25.Text = "Write EPC:\r\n(1-15Word)";
             // 
             // groupBox13
             // 
@@ -999,277 +579,15 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.Button_SetProtectState);
-            this.groupBox7.Controls.Add(this.textBox2);
-            this.groupBox7.Controls.Add(this.label22);
-            this.groupBox7.Controls.Add(this.groupBox11);
-            this.groupBox7.Controls.Add(this.groupBox10);
-            this.groupBox7.Controls.Add(this.groupBox8);
             this.groupBox7.Controls.Add(this.ComboBox_EPC1);
             this.groupBox7.Location = new System.Drawing.Point(1, 552);
             this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox7.Size = new System.Drawing.Size(641, 279);
+            this.groupBox7.Size = new System.Drawing.Size(641, 81);
             this.groupBox7.TabIndex = 2;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Set Protect For Reading Or Writing";
-            // 
-            // Button_SetProtectState
-            // 
-            this.Button_SetProtectState.Location = new System.Drawing.Point(500, 241);
-            this.Button_SetProtectState.Margin = new System.Windows.Forms.Padding(4);
-            this.Button_SetProtectState.Name = "Button_SetProtectState";
-            this.Button_SetProtectState.Size = new System.Drawing.Size(132, 31);
-            this.Button_SetProtectState.TabIndex = 6;
-            this.Button_SetProtectState.Text = "Set Protect";
-            this.Button_SetProtectState.UseVisualStyleBackColor = true;
-            this.Button_SetProtectState.Click += new System.EventHandler(this.Button_SetProtectState_Click);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(351, 244);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.MaxLength = 8;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 22);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "00000000";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(348, 220);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(172, 17);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "Access Password (8 Hex):";
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.AlwaysNot2);
-            this.groupBox11.Controls.Add(this.Always2);
-            this.groupBox11.Controls.Add(this.Proect2);
-            this.groupBox11.Controls.Add(this.NoProect2);
-            this.groupBox11.Location = new System.Drawing.Point(344, 57);
-            this.groupBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox11.Size = new System.Drawing.Size(289, 160);
-            this.groupBox11.TabIndex = 3;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "Lock of EPC TID and User Bank";
-            // 
-            // AlwaysNot2
-            // 
-            this.AlwaysNot2.AutoSize = true;
-            this.AlwaysNot2.Location = new System.Drawing.Point(7, 129);
-            this.AlwaysNot2.Margin = new System.Windows.Forms.Padding(4);
-            this.AlwaysNot2.Name = "AlwaysNot2";
-            this.AlwaysNot2.Size = new System.Drawing.Size(127, 21);
-            this.AlwaysNot2.TabIndex = 3;
-            this.AlwaysNot2.TabStop = true;
-            this.AlwaysNot2.Text = "Never writeable";
-            this.AlwaysNot2.UseVisualStyleBackColor = true;
-            // 
-            // Always2
-            // 
-            this.Always2.AutoSize = true;
-            this.Always2.Location = new System.Drawing.Point(7, 95);
-            this.Always2.Margin = new System.Windows.Forms.Padding(4);
-            this.Always2.Name = "Always2";
-            this.Always2.Size = new System.Drawing.Size(168, 21);
-            this.Always2.TabIndex = 2;
-            this.Always2.TabStop = true;
-            this.Always2.Text = "Permanently writeable";
-            this.Always2.UseVisualStyleBackColor = true;
-            // 
-            // Proect2
-            // 
-            this.Proect2.AutoSize = true;
-            this.Proect2.Location = new System.Drawing.Point(7, 60);
-            this.Proect2.Margin = new System.Windows.Forms.Padding(4);
-            this.Proect2.Name = "Proect2";
-            this.Proect2.Size = new System.Drawing.Size(235, 21);
-            this.Proect2.TabIndex = 1;
-            this.Proect2.TabStop = true;
-            this.Proect2.Text = "Writeable from the secured state";
-            this.Proect2.UseVisualStyleBackColor = true;
-            // 
-            // NoProect2
-            // 
-            this.NoProect2.AutoSize = true;
-            this.NoProect2.Location = new System.Drawing.Point(7, 25);
-            this.NoProect2.Margin = new System.Windows.Forms.Padding(4);
-            this.NoProect2.Name = "NoProect2";
-            this.NoProect2.Size = new System.Drawing.Size(183, 21);
-            this.NoProect2.TabIndex = 0;
-            this.NoProect2.TabStop = true;
-            this.NoProect2.Text = "Writeable from any state";
-            this.NoProect2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.P_User);
-            this.groupBox10.Controls.Add(this.P_TID);
-            this.groupBox10.Controls.Add(this.P_EPC);
-            this.groupBox10.Controls.Add(this.P_Reserve);
-            this.groupBox10.Location = new System.Drawing.Point(345, 16);
-            this.groupBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox10.Size = new System.Drawing.Size(287, 41);
-            this.groupBox10.TabIndex = 2;
-            this.groupBox10.TabStop = false;
-            // 
-            // P_User
-            // 
-            this.P_User.AutoSize = true;
-            this.P_User.Location = new System.Drawing.Point(216, 15);
-            this.P_User.Margin = new System.Windows.Forms.Padding(4);
-            this.P_User.Name = "P_User";
-            this.P_User.Size = new System.Drawing.Size(59, 21);
-            this.P_User.TabIndex = 3;
-            this.P_User.TabStop = true;
-            this.P_User.Text = "User";
-            this.P_User.UseVisualStyleBackColor = true;
-            // 
-            // P_TID
-            // 
-            this.P_TID.AutoSize = true;
-            this.P_TID.Location = new System.Drawing.Point(159, 15);
-            this.P_TID.Margin = new System.Windows.Forms.Padding(4);
-            this.P_TID.Name = "P_TID";
-            this.P_TID.Size = new System.Drawing.Size(51, 21);
-            this.P_TID.TabIndex = 2;
-            this.P_TID.TabStop = true;
-            this.P_TID.Text = "TID";
-            this.P_TID.UseVisualStyleBackColor = true;
-            // 
-            // P_EPC
-            // 
-            this.P_EPC.AutoSize = true;
-            this.P_EPC.Location = new System.Drawing.Point(103, 15);
-            this.P_EPC.Margin = new System.Windows.Forms.Padding(4);
-            this.P_EPC.Name = "P_EPC";
-            this.P_EPC.Size = new System.Drawing.Size(56, 21);
-            this.P_EPC.TabIndex = 1;
-            this.P_EPC.TabStop = true;
-            this.P_EPC.Text = "EPC";
-            this.P_EPC.UseVisualStyleBackColor = true;
-            // 
-            // P_Reserve
-            // 
-            this.P_Reserve.AutoSize = true;
-            this.P_Reserve.Location = new System.Drawing.Point(5, 15);
-            this.P_Reserve.Margin = new System.Windows.Forms.Padding(4);
-            this.P_Reserve.Name = "P_Reserve";
-            this.P_Reserve.Size = new System.Drawing.Size(90, 21);
-            this.P_Reserve.TabIndex = 0;
-            this.P_Reserve.TabStop = true;
-            this.P_Reserve.Text = "Password";
-            this.P_Reserve.UseVisualStyleBackColor = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.AlwaysNot);
-            this.groupBox8.Controls.Add(this.Always);
-            this.groupBox8.Controls.Add(this.Proect);
-            this.groupBox8.Controls.Add(this.NoProect);
-            this.groupBox8.Controls.Add(this.groupBox9);
-            this.groupBox8.Location = new System.Drawing.Point(5, 47);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox8.Size = new System.Drawing.Size(331, 228);
-            this.groupBox8.TabIndex = 1;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Lock of Password";
-            // 
-            // AlwaysNot
-            // 
-            this.AlwaysNot.AutoSize = true;
-            this.AlwaysNot.Location = new System.Drawing.Point(8, 199);
-            this.AlwaysNot.Margin = new System.Windows.Forms.Padding(4);
-            this.AlwaysNot.Name = "AlwaysNot";
-            this.AlwaysNot.Size = new System.Drawing.Size(215, 21);
-            this.AlwaysNot.TabIndex = 4;
-            this.AlwaysNot.TabStop = true;
-            this.AlwaysNot.Text = "Never readable and writeable";
-            this.AlwaysNot.UseVisualStyleBackColor = true;
-            // 
-            // Always
-            // 
-            this.Always.AutoSize = true;
-            this.Always.Location = new System.Drawing.Point(8, 167);
-            this.Always.Margin = new System.Windows.Forms.Padding(4);
-            this.Always.Name = "Always";
-            this.Always.Size = new System.Drawing.Size(256, 21);
-            this.Always.TabIndex = 3;
-            this.Always.TabStop = true;
-            this.Always.Text = "Permanently readable and writeable";
-            this.Always.UseVisualStyleBackColor = true;
-            // 
-            // Proect
-            // 
-            this.Proect.AutoSize = true;
-            this.Proect.Location = new System.Drawing.Point(8, 123);
-            this.Proect.Margin = new System.Windows.Forms.Padding(4);
-            this.Proect.Name = "Proect";
-            this.Proect.Size = new System.Drawing.Size(238, 38);
-            this.Proect.TabIndex = 2;
-            this.Proect.TabStop = true;
-            this.Proect.Text = "Readable and writeable from the \r\nsecured state";
-            this.Proect.UseVisualStyleBackColor = true;
-            // 
-            // NoProect
-            // 
-            this.NoProect.AutoSize = true;
-            this.NoProect.Location = new System.Drawing.Point(8, 89);
-            this.NoProect.Margin = new System.Windows.Forms.Padding(4);
-            this.NoProect.Name = "NoProect";
-            this.NoProect.Size = new System.Drawing.Size(218, 38);
-            this.NoProect.TabIndex = 1;
-            this.NoProect.TabStop = true;
-            this.NoProect.Text = "Readable and  writeable from \r\nany state";
-            this.NoProect.UseVisualStyleBackColor = true;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.AccessCode);
-            this.groupBox9.Controls.Add(this.DestroyCode);
-            this.groupBox9.Location = new System.Drawing.Point(7, 24);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox9.Size = new System.Drawing.Size(316, 64);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            // 
-            // AccessCode
-            // 
-            this.AccessCode.AutoSize = true;
-            this.AccessCode.Location = new System.Drawing.Point(144, 27);
-            this.AccessCode.Margin = new System.Windows.Forms.Padding(4);
-            this.AccessCode.Name = "AccessCode";
-            this.AccessCode.Size = new System.Drawing.Size(139, 21);
-            this.AccessCode.TabIndex = 1;
-            this.AccessCode.TabStop = true;
-            this.AccessCode.Text = "Access Password";
-            this.AccessCode.UseVisualStyleBackColor = true;
-            // 
-            // DestroyCode
-            // 
-            this.DestroyCode.AutoSize = true;
-            this.DestroyCode.Location = new System.Drawing.Point(8, 27);
-            this.DestroyCode.Margin = new System.Windows.Forms.Padding(4);
-            this.DestroyCode.Name = "DestroyCode";
-            this.DestroyCode.Size = new System.Drawing.Size(112, 21);
-            this.DestroyCode.TabIndex = 0;
-            this.DestroyCode.TabStop = true;
-            this.DestroyCode.Text = "Kill Password";
-            this.DestroyCode.UseVisualStyleBackColor = true;
             // 
             // ComboBox_EPC1
             // 
@@ -1582,6 +900,7 @@
             this.ListView1_EPC.TabIndex = 1;
             this.ListView1_EPC.UseCompatibleStateImageBehavior = false;
             this.ListView1_EPC.View = System.Windows.Forms.View.Details;
+            this.ListView1_EPC.SelectedIndexChanged += new System.EventHandler(this.ListView1_EPC_SelectedIndexChanged);
             // 
             // listViewCol_Number
             // 
@@ -1596,7 +915,6 @@
             // listViewCol_Length
             // 
             this.listViewCol_Length.Text = "EPCLength";
-            this.listViewCol_Length.Width = 150;
             // 
             // listViewCol_Times
             // 
@@ -2038,23 +1356,11 @@
             // Timer_G2_Read
             // 
             this.Timer_G2_Read.Interval = 200;
-            this.Timer_G2_Read.Tick += new System.EventHandler(this.Timer_G2_Read_Tick_1);
+           
             // 
             // Timer_G2_Alarm
             // 
             this.Timer_G2_Alarm.Tick += new System.EventHandler(this.Timer_G2_Alarm_Tick_1);
-            // 
-            // Timer_Test_6B
-            // 
-            this.Timer_Test_6B.Tick += new System.EventHandler(this.Timer_Test_6B_Tick_1);
-            // 
-            // Timer_6B_Read
-            // 
-            this.Timer_6B_Read.Tick += new System.EventHandler(this.Timer_6B_Read_Tick_1);
-            // 
-            // Timer_6B_Write
-            // 
-            this.Timer_6B_Write.Tick += new System.EventHandler(this.Timer_6B_Write_Tick_1);
             // 
             // Device
             // 
@@ -2073,16 +1379,6 @@
             this.TabSheet_EPCC1G2.ResumeLayout(false);
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -2090,15 +1386,6 @@
             this.groupBox33.ResumeLayout(false);
             this.groupBox33.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -2135,110 +1422,6 @@
         internal System.Windows.Forms.ComboBox ComboBox_COM;
         internal System.Windows.Forms.Label Label1;
         private System.Windows.Forms.TabPage TabSheet_EPCC1G2;
-        private System.Windows.Forms.GroupBox groupBox31;
-        private System.Windows.Forms.TextBox maskLen_textBox;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox maskadr_textbox;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.Button Button_LockUserBlock_G2;
-        private System.Windows.Forms.TextBox Edit_AccessCode6;
-        private System.Windows.Forms.ComboBox ComboBox_BlockNum;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.ComboBox ComboBox_EPC6;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.Label Label_Alarm;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button Button_SetEASAlarm_G2;
-        private System.Windows.Forms.GroupBox groupBox17;
-        private System.Windows.Forms.RadioButton NoAlarm_G2;
-        private System.Windows.Forms.RadioButton Alarm_G2;
-        private System.Windows.Forms.TextBox Edit_AccessCode5;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox ComboBox_EPC5;
-        private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.Button Button_CheckReadProtected_G2;
-        private System.Windows.Forms.Button Button_RemoveReadProtect_G2;
-        private System.Windows.Forms.Button Button_SetMultiReadProtect_G2;
-        private System.Windows.Forms.Button Button_SetReadProtect_G2;
-        private System.Windows.Forms.TextBox Edit_AccessCode4;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox ComboBox_EPC4;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.Button Button_WriteEPC_G2;
-        private System.Windows.Forms.TextBox Edit_AccessCode3;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox Edit_WriteEPC;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.Button Button_DestroyCard;
-        private System.Windows.Forms.TextBox Edit_DestroyCode;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.ComboBox ComboBox_EPC3;
-        private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.CheckBox CheckBox_TID;
-        private System.Windows.Forms.GroupBox groupBox33;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox ComboBox_IntervalTime;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button Button_SetProtectState;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.RadioButton AlwaysNot2;
-        private System.Windows.Forms.RadioButton Always2;
-        private System.Windows.Forms.RadioButton Proect2;
-        private System.Windows.Forms.RadioButton NoProect2;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.RadioButton P_User;
-        private System.Windows.Forms.RadioButton P_TID;
-        private System.Windows.Forms.RadioButton P_EPC;
-        private System.Windows.Forms.RadioButton P_Reserve;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RadioButton AlwaysNot;
-        private System.Windows.Forms.RadioButton Always;
-        private System.Windows.Forms.RadioButton Proect;
-        private System.Windows.Forms.RadioButton NoProect;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.RadioButton AccessCode;
-        private System.Windows.Forms.RadioButton DestroyCode;
-        private System.Windows.Forms.ComboBox ComboBox_EPC1;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox_pc;
-        private System.Windows.Forms.CheckBox checkBox_pc;
-        private System.Windows.Forms.Button BlockWrite;
-        private System.Windows.Forms.ComboBox ComboBox_EPC2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button Button_BlockErase;
-        private System.Windows.Forms.Button Button_DataWrite;
-        private System.Windows.Forms.Button SpeedButton_Read_G2;
-        private System.Windows.Forms.TextBox Edit_WriteData;
-        private System.Windows.Forms.TextBox Edit_AccessCode2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox Edit_WordPtr;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.RadioButton C_User;
-        private System.Windows.Forms.RadioButton C_TID;
-        private System.Windows.Forms.RadioButton C_EPC;
-        private System.Windows.Forms.RadioButton C_Reserve;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListView ListView1_EPC;
-        private System.Windows.Forms.ColumnHeader listViewCol_Number;
-        private System.Windows.Forms.ColumnHeader listViewCol_ID;
-        private System.Windows.Forms.ColumnHeader listViewCol_Length;
-        private System.Windows.Forms.ColumnHeader listViewCol_Times;
         private System.Windows.Forms.TabPage TabSheet_6B;
         private System.Windows.Forms.GroupBox groupBox22;
         private System.Windows.Forms.TextBox Edit_WriteData_6B;
@@ -2282,8 +1465,57 @@
         private System.Windows.Forms.Timer Timer_Test_;
         private System.Windows.Forms.Timer Timer_G2_Read;
         private System.Windows.Forms.Timer Timer_G2_Alarm;
-        private System.Windows.Forms.Timer Timer_Test_6B;
-        private System.Windows.Forms.Timer Timer_6B_Read;
-        private System.Windows.Forms.Timer Timer_6B_Write;
+        private System.Windows.Forms.GroupBox groupBox31;
+        private System.Windows.Forms.TextBox maskLen_textBox;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.TextBox maskadr_textbox;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Button Button_DestroyCard;
+        private System.Windows.Forms.TextBox Edit_DestroyCode;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox ComboBox_EPC3;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.CheckBox CheckBox_TID;
+        private System.Windows.Forms.GroupBox groupBox33;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox ComboBox_IntervalTime;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ComboBox ComboBox_EPC1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox textBox_pc;
+        private System.Windows.Forms.CheckBox checkBox_pc;
+        private System.Windows.Forms.Button BlockWrite;
+        private System.Windows.Forms.ComboBox ComboBox_EPC2;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button Button_BlockErase;
+        private System.Windows.Forms.Button Button_DataWrite;
+        private System.Windows.Forms.Button SpeedButton_Read_G2;
+        private System.Windows.Forms.TextBox Edit_WriteData;
+        private System.Windows.Forms.TextBox Edit_AccessCode2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Edit_WordPtr;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RadioButton C_User;
+        private System.Windows.Forms.RadioButton C_TID;
+        private System.Windows.Forms.RadioButton C_EPC;
+        private System.Windows.Forms.RadioButton C_Reserve;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.ListView ListView1_EPC;
+        private System.Windows.Forms.ColumnHeader listViewCol_Number;
+        private System.Windows.Forms.ColumnHeader listViewCol_ID;
+        private System.Windows.Forms.ColumnHeader listViewCol_Length;
+        private System.Windows.Forms.ColumnHeader listViewCol_Times;
     }
 }

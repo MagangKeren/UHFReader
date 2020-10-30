@@ -24,6 +24,7 @@ namespace UHFReader
         public byte EpcReading = 0;
         public int TagCnt = 0;
         public int ScanTimes = 0;
+        public string dataBaca = "";
 
         private void bRs232Con_Click(object sender, EventArgs e)
         {
@@ -47,10 +48,7 @@ namespace UHFReader
             lInfo.Items.Add("Connect the reader success!");
             s = string.Format("The reader's firmware version is:V{0:d2}.{1:d2}", v1, v2);
             lInfo.Items.Add(s);
-            //bAntQuery_Click(sender, e);
 
-
-            // ÐÂÔöÉèÖÃ²¨ÌØÂÊ¹¦ÄÜ£¬¿ÉÌá¸ß¶à±êÇ©Ê¶±ðËÙ¶È
             status = Reader1.SetBaudRate((byte)cBaudrate.SelectedIndex);
             if (status != 0)
             {
@@ -65,15 +63,12 @@ namespace UHFReader
             bRs232Con.Enabled = false;
             bRs232Discon.Enabled = true;
 
-
-
             bEpcId.Enabled = true;
             bEpcRead.Enabled = true;
             bEpcWrite.Enabled = true;
             bEpcInit.Enabled = true;
             bEpcKill.Enabled = true;
 
-            //bRfQuery_Click(null, null);
         }
 
         private void Device_2_Load(object sender, EventArgs e)
@@ -85,14 +80,11 @@ namespace UHFReader
 
             bReset.Enabled = false;
 
-
-
             bEpcId.Enabled = false;
             bEpcRead.Enabled = false;
             bEpcWrite.Enabled = false;
             bEpcKill.Enabled = false;
             bEpcInit.Enabled = false;
-
 
             cEpcTimes.SelectedIndex = 0;
 
@@ -101,9 +93,9 @@ namespace UHFReader
             for (nLoop = 0; nLoop < 256; nLoop++)
                 cEpcWordptr.Items.Add(Convert.ToString(nLoop));
             cEpcWordptr.SelectedIndex = 2;
-            for (nLoop = 0; nLoop < 256; nLoop++)
+            for (nLoop = 0; nLoop < 3; nLoop++)
                 cEpcWordcnt.Items.Add(Convert.ToString(nLoop));
-            cEpcWordcnt.SelectedIndex = 6;
+            cEpcWordcnt.SelectedIndex = 2;
         }
 
         private void bRs232Discon_Click(object sender, EventArgs e)
@@ -115,8 +107,6 @@ namespace UHFReader
 
             bReset.Enabled = false;
 
-
-
             bEpcId.Enabled = false;
             bEpcRead.Enabled = false;
             bEpcWrite.Enabled = false;
@@ -124,31 +114,6 @@ namespace UHFReader
             bEpcInit.Enabled = false;
         }
 
-
-        private void bEpcId_Click(object sender, EventArgs e)
-        {
-            if (EpcReading == 0)
-            {
-                Reader1.ClearIdBuf();
-                lInfo.Items.Clear();
-                lInfo.Items.Add("Start multiply tags identify!");
-                TagCnt = 0;
-                if (cEpcTimes.SelectedIndex > 0)
-                    ScanTimes = Convert.ToInt16(cEpcTimes.Text);
-                else
-                    ScanTimes = 9999;
-                timerScanEPC.Interval = (tEpcSpeed.Value + 1) * 20;
-                timerScanEPC.Enabled = true;
-                bEpcId.Text = "Stop";
-                EpcReading = 1;
-            }
-            else
-            {
-                timerScanEPC.Enabled = false;
-                EpcReading = 0;
-                bEpcId.Text = "Identify";
-            }
-        }
         private void timer2_Tick(object sender, EventArgs e)
         {
             int status;
@@ -216,6 +181,32 @@ namespace UHFReader
             if (ScanTimes <= 0)
             {
                 bEpcId_Click(sender, e);
+                //bEpcWrite_Click(sender, e);
+            }
+        }
+        private void bEpcId_Click(object sender, EventArgs e)
+        {
+            if (EpcReading == 0)
+            {
+                Reader1.ClearIdBuf();
+                lInfo.Items.Clear();
+                lInfo.Items.Add("Start multiply tags identify!");
+
+                TagCnt = 0;
+                if (cEpcTimes.SelectedIndex > 0)
+                    ScanTimes = Convert.ToInt16(cEpcTimes.Text);
+                else
+                    ScanTimes = 9999;
+                timerScanEPC.Interval = (tEpcSpeed.Value + 1) * 20;
+                timerScanEPC.Enabled = true;
+                bEpcId.Text = "Stop";
+                EpcReading = 1;
+            }
+            else
+            {
+                timerScanEPC.Enabled = false;
+                EpcReading = 0;
+                bEpcId.Text = "Identify";
             }
         }
 
@@ -229,27 +220,46 @@ namespace UHFReader
 
             string s = "The data is:";
             string s1 = "";
+            string s2 = "";
 
             membank = cEpcMembank.SelectedIndex;
             wordptr = cEpcWordptr.SelectedIndex;
             wordcnt = cEpcWordcnt.SelectedIndex;
 
             status = Reader1.EpcRead((byte)membank, (byte)wordptr, (byte)wordcnt, ref value);
-
+            
             if (status != 0)
             {
                 lInfo.Items.Add("Read failed!");
+                
                 return;
             }
             else
             {
+
                 for (int i = 0; i < wordcnt * 2; i++)
                 {
                     s1 = string.Format("{0:X2}", value[i]);
+                    s2 += s1;
                     s += s1;
+                    
+                    
                 }
+
+                //dataBaca = s2;
+
                 lInfo.Items.Add("Read success!");
+                
                 lInfo.Items.Add(s);
+                if (comboBox1.Items.IndexOf(s2) == -1)
+                {
+                    comboBox1.Items.Add(s2);
+                }
+                if ((comboBox1.Items.Count != 0))
+                {
+                    comboBox1.SelectedIndex = 0;
+                }
+
             }
         }
 
@@ -285,53 +295,113 @@ namespace UHFReader
 
         private void bEpcWrite_Click(object sender, EventArgs e)
         {
-            ushort[] value = new ushort[16];
+            int membank1;
+            int wordptr1;
+            int wordcnt1;
+            int status1 = 0;
+            byte[] value1 = new byte[16];
 
-            int i = 0;
-            byte membank;
-            byte wordptr;
-            byte wordcnt;
-            int status;
-            string hexValues;
+            string s = "The data is:";
+            string s1 = "";
+            string s2 = "";
 
-            membank = (byte)(cEpcMembank.SelectedIndex);
-            wordptr = (byte)(cEpcWordptr.SelectedIndex);
-            wordcnt = (byte)(cEpcWordcnt.SelectedIndex);
+            membank1 = cEpcMembank.SelectedIndex;
+            wordptr1 = cEpcWordptr.SelectedIndex;
+            wordcnt1 = cEpcWordcnt.SelectedIndex;
 
-            hexValues = tEpcData.Text;
-            string[] hexValuesSplit = hexValues.Split(' ');
-            try
+            status1 = Reader1.EpcRead((byte)membank1, (byte)wordptr1, (byte)wordcnt1, ref value1);
+
+            for (int i = 0; i < wordcnt1 * 2; i++)
             {
-                foreach (String hex in hexValuesSplit)
+                s1 = string.Format("{0:X2}", value1[i]);
+                s2 += s1;
+                s += s1;
+
+
+            }
+            dataBaca = s2;
+
+            //if (status1 != 0)
+            //{
+            //    //lInfo.Items.Add("Read failed!");
+
+            //   // return;
+            //}
+            //else
+            //{
+
+
+            //    //lInfo.Items.Add("Read success!");
+
+            //    //lInfo.Items.Add(s);
+
+            //}
+
+            
+            if (comboBox1.Text == dataBaca)
+            {
+                ushort[] value = new ushort[16];
+
+                int i = 0;
+                byte membank;
+                byte wordptr;
+                byte wordcnt;
+                int status;
+                string hexValues;
+
+                membank = (byte)(cEpcMembank.SelectedIndex);
+                wordptr = (byte)(cEpcWordptr.SelectedIndex);
+                wordcnt = (byte)(cEpcWordcnt.SelectedIndex);
+
+
+                hexValues = tEpcData.Text;
+                string[] hexValuesSplit = hexValues.Split(' ');
+
+                if (comboBox1.Items.Count == 0)
+                    return;
+                try
                 {
-                    // Convert the number expressed in base-16 to an integer.
-                    if (hex.Length >= 2)
+                    foreach (String hex in hexValuesSplit)
                     {
-                        int x = Convert.ToInt32(hex, 16);
-                        value[i++] = (ushort)x;
+                        // Convert the number expressed in base-16 to an integer.
+                        if (hex.Length >= 2)
+                        {
+                            int x = Convert.ToInt32(hex, 16);
+                            value[i++] = (ushort)x;
+                        }
                     }
                 }
-            }
-            catch (Exception)
-            {
-                lInfo.Items.Add("Please input data needed");
-                return;
-            }
-            if (i != wordcnt)
-            {
-                lInfo.Items.Add("Please input data needed");
-                return;
-            }
-            for (byte j = 0; j < wordcnt; j++)
-            {
-                status = Reader1.EpcWrite(membank, (byte)(wordptr + j), value[j]);
-                if (status != 0)
+                catch (Exception)
                 {
-                    lInfo.Items.Add("Write failed!");
+                    lInfo.Items.Add("Please input data needed");
                     return;
                 }
+                if (i != wordcnt)
+                {
+                    lInfo.Items.Add("Please input data needed");
+                    return;
+                }
+                for (byte j = 0; j < wordcnt; j++)
+                {
+
+                    status = Reader1.EpcWrite(membank, (byte)(wordptr + j), value[j]);
+
+                    if (status != 0)
+                    {
+                        lInfo.Items.Add("Write  success!");
+                        return;
+                    }
+                    //else if (comboBox1.SelectedIndex != timerScanEPC_Tick)
+
+                }
+                lInfo.Items.Add("Write success!");
             }
-            lInfo.Items.Add("Write success!");
+            else
+            {
+                MessageBox.Show("ANJIM");
+            }
+
+            
         }
 
         private void tEpcData_TextChanged(object sender, EventArgs e)
@@ -552,6 +622,7 @@ namespace UHFReader
 
         private void timerScanEPC_Tick(object sender, EventArgs e)
         {
+            string s5 = "";
             int status;
             int i, j;
             byte[,] IsoBuf = new byte[100, 12];
@@ -574,7 +645,11 @@ namespace UHFReader
                     {
                         s = string.Format("{0:X2} ", IsoBuf[i, j]);
                         s1 += s;
+                        s5 += s;
                     }
+                    //dataBaca = s5;
+                    
+                    
                     lInfo.Items.Add(s1);
                     ListViewItem lviList = new ListViewItem();
                     if (lvTagList.Items.Count <= 0)
@@ -605,8 +680,18 @@ namespace UHFReader
                             lviList.SubItems.Add("");
                             lviList.SubItems.Add("");
                             lvTagList.Items.Add(lviList);
+                            //comboBox1.SelectedIndex = 0;
+                            
                         }
                         lvTagList.Items[listIn].SubItems[1].Text = s1;
+                        //passing ke combobox
+                        //if (comboBox1.Items.IndexOf(s1) == -1){
+                        //    comboBox1.Items.Add(s1);
+                        //}
+                        //if ((comboBox1.Items.Count != 0))
+                        //{
+                        //    comboBox1.SelectedIndex = 0;
+                        //}
                         if (lvTagList.Items[listIn].SubItems[2].Text == "")
                             lvTagList.Items[listIn].SubItems[2].Text = "0";
                         Int64 intTimes = Convert.ToInt64(lvTagList.Items[listIn].SubItems[2].Text);
@@ -617,6 +702,7 @@ namespace UHFReader
             if (ScanTimes <= 0)
             {
                 bEpcId_Click(sender, e);
+                bEpcWrite_Click(sender, e);
             }
         }
 
